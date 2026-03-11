@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160">
+<g fill="currentColor">
+<rect x="70.0" y="60.0" width="12.0" height="100.0" rx="2.0"/>
+<rect x="160.0" y="60.0" width="12.0" height="100.0" rx="2.0"/>
+<rect x="52.0" y="52.0" width="148.0" height="13.0" rx="3.0"/>
+<rect x="62.0" y="72.0" width="118.0" height="10.0" rx="2.0"/>
+<rect x="65.0" y="95.0" width="112.0" height="8.0" rx="2.0"/>
+<rect x="110.0" y="72.0" width="22.0" height="25.0" rx="2.0"/>
+<path d="M260,30 Q249.2,21.0 242.0,31.8" stroke="currentColor" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+<path d="M260,30 Q270.8,21.0 278.0,31.8" stroke="currentColor" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+<path d="M290,22 Q280.4,14.0 274.0,23.6" stroke="currentColor" stroke-width="2.9" fill="none" stroke-linecap="round"/>
+<path d="M290,22 Q299.6,14.0 306.0,23.6" stroke="currentColor" stroke-width="2.9" fill="none" stroke-linecap="round"/>
+<path d="M320,28 Q311.6,21.0 306.0,29.4" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<path d="M320,28 Q328.4,21.0 334.0,29.4" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<path d="M345,18 Q337.2,11.5 332.0,19.3" stroke="currentColor" stroke-width="2.3" fill="none" stroke-linecap="round"/>
+<path d="M345,18 Q352.8,11.5 358.0,19.3" stroke="currentColor" stroke-width="2.3" fill="none" stroke-linecap="round"/>
+<path d="M370,30 Q362.8,24.0 358.0,31.2" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+<path d="M370,30 Q377.2,24.0 382.0,31.2" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+<path d="M275,50 Q267.2,43.5 262.0,51.3" stroke="currentColor" stroke-width="2.3" fill="none" stroke-linecap="round"/>
+<path d="M275,50 Q282.8,43.5 288.0,51.3" stroke="currentColor" stroke-width="2.3" fill="none" stroke-linecap="round"/>
+<path d="M305,45 Q298.4,39.5 294.0,46.1" stroke="currentColor" stroke-width="2.0" fill="none" stroke-linecap="round"/>
+<path d="M305,45 Q311.6,39.5 316.0,46.1" stroke="currentColor" stroke-width="2.0" fill="none" stroke-linecap="round"/>
+<path d="M330,52 Q324.0,47.0 320.0,53.0" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+<path d="M330,52 Q336.0,47.0 340.0,53.0" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+<path d="M355,42 Q349.0,37.0 345.0,43.0" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+<path d="M355,42 Q361.0,37.0 365.0,43.0" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+
+</g>
+</svg>

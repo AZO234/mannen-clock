@@ -231,6 +231,51 @@ const kanshiData = computed(() => {
   return toKanshi(kanYear)
 })
 
+
+const MONTH_SVG = [
+  '01_mutsuki','02_kisaragi','03_yayoi','04_uzuki',
+  '05_satsuki','06_minazuki','07_fumizuki','08_hazuki',
+  '09_nagatsuki','10_kannazuki','11_shimotsuki','12_shiwasu',
+]
+
+const MONTH_NAME = ['睦月','如月','弥生','卯月','皐月','水無月','文月','葉月','長月','神無月','霜月','師走']
+const MONTH_MOTIF = [
+  '梅の枝',     // 睦月
+  '雪・着物',   // 如月
+  '桜',         // 弥生
+  '卯の花・蝶', // 卯月
+  '田植え',     // 皐月
+  'あじさい・雨', // 水無月
+  '七夕・笹',   // 文月
+  '落ち葉',     // 葉月
+  '月・すすき', // 長月
+  '鳥居・渡り鳥', // 神無月
+  '霜・枯れ枝', // 霜月
+  '除夜の鐘',   // 師走
+]
+const MONTH_DESC = [
+  '家族や親戚が睦み合う月',         // 睦月
+  '寒さに衣を重ね着する月',         // 如月
+  '草木がいよいよ生い茂る月',       // 弥生
+  '卯の花（ウツギ）が咲く月',       // 卯月
+  '早苗を植え始める月',             // 皐月
+  '田に水を張る・水が満ちる月',     // 水無月
+  '七夕に歌や字を書く短冊の月',     // 文月
+  '葉が落ちる月（旧暦の秋）',       // 葉月
+  '夜長月——秋の夜長の月',           // 長月
+  '神々が出雲へ旅立つ月',           // 神無月
+  '霜が降り始める月',               // 霜月
+  '師（僧）が馳せ走る月',           // 師走
+]
+const navMonthName = computed(() => MONTH_NAME[currentMonth.value - 1])
+const navMotif     = computed(() => MONTH_MOTIF[currentMonth.value - 1])
+const navDesc      = computed(() => MONTH_DESC[currentMonth.value - 1])
+
+const navSvgSrc = computed(() => {
+  const key = MONTH_SVG[(currentMonth.value - 1) % 12]
+  return `${import.meta.env.BASE_URL}months/${key}.svg`
+})
+
 const monthTitle = computed(() => `${currentYear.value}年 ${currentMonth.value}月`)
 const monthSub   = computed(() => {
   const sub = calendarData.value.lunarSubtitle
@@ -271,8 +316,15 @@ const modalNextSekki = computed(() => {
       <div class="nav-center">
         <div class="month-title">{{ monthTitle }}</div>
         <div class="month-sub">{{ monthSub }}</div>
+        <div class="month-wafuu">
+          <span class="month-wafuu__name">{{ navMonthName }}</span>
+          <span class="month-wafuu__sep">—</span>
+          <span class="month-wafuu__desc">{{ navDesc }}</span>
+        </div>
       </div>
       <button class="nav-btn" @click="nextMonth">▶</button>
+      <!-- 月シルエット -->
+      <div class="nav-silhouette" :style="{ maskImage: `url(${navSvgSrc})`, webkitMaskImage: `url(${navSvgSrc})` }" aria-hidden="true"/>
     </div>
 
     <!-- 曜日ヘッダー -->
@@ -473,11 +525,17 @@ const modalNextSekki = computed(() => {
 /* ── カレンダー本体 ─────────────────────────────────────── */
 .cal-wrap { font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif; }
 
-.nav { display:flex; align-items:center; justify-content:center; gap:1.2rem; margin-bottom:1rem; text-align:center; }
+.nav { display:flex; align-items:center; justify-content:center; gap:1.2rem; margin-bottom:1rem; text-align:center; position:relative; min-height:4rem; padding:0.5rem 1rem; border-radius:8px; overflow:hidden; }
+.nav-silhouette { position:absolute; right:0; top:0; bottom:0; width:55%; background:var(--gold); mask-repeat:no-repeat; mask-position:center right; mask-size:contain; -webkit-mask-repeat:no-repeat; -webkit-mask-position:center right; -webkit-mask-size:contain; opacity:0.13; pointer-events:none; transition:opacity 0.3s; }
+[data-theme="light"] .nav-silhouette { opacity:0.10; }
 .nav-btn { background:none; border:1px solid rgba(255,255,255,0.2); color:var(--gold); font-size:1.1rem; width:2.2rem; height:2.2rem; border-radius:50%; cursor:pointer; transition:background 0.2s; display:flex; align-items:center; justify-content:center; }
 .nav-btn:hover { background:var(--bg-hover); }
 .month-title { font-size:1.6rem; font-weight:400; letter-spacing:0.12em; color:var(--gold); }
 .month-sub   { font-size:0.72rem; color:var(--gold-muted); letter-spacing:0.08em; font-family:'Hiragino Sans',sans-serif; }
+.month-wafuu { display:flex; align-items:center; gap:0.4em; margin-top:0.2rem; justify-content:center; }
+.month-wafuu__name { font-size:0.78rem; color:var(--gold); letter-spacing:0.12em; font-family:'Hiragino Mincho ProN',serif; }
+.month-wafuu__sep  { font-size:0.65rem; color:var(--fg-muted); }
+.month-wafuu__desc { font-size:0.65rem; color:var(--fg-muted); letter-spacing:0.05em; }
 
 .weekdays { display:grid; grid-template-columns:repeat(7,1fr); gap:3px; margin-bottom:3px; }
 .weekday  { text-align:center; font-size:0.68rem; font-family:'Hiragino Sans',sans-serif; padding:0.3rem 0; color:var(--fg-muted); }

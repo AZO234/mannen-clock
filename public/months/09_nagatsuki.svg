@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160">
+<g fill="currentColor">
+<circle cx="310.0" cy="60.0" r="52.0"/>
+<path d="M260,72 Q240,60 230,72 Q220,64 215,75 Q205,68 200,80 Q195,90 205,95 Q215,100 260,98 Q290,98 310,95 Q330,90 325,80 Q318,68 305,72 Z"/>
+<path d="M30,160 Q22.5,105.0 15.0,50.0" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<ellipse cx="15.0" cy="55.4" rx="4.5" ry="10.8" transform="rotate(-22.5,15.0,55.4)"/>
+<path d="M24.8,121.5 Q21.3,134.3 19.1,142.8" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+<path d="M21.0,94.0 Q27.9,103.8 32.5,110.4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+<path d="M22.5,105.0 Q19.7,115.4 17.8,122.4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+<path d="M60,160 Q56.0,97.5 52.0,35.0" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<ellipse cx="52.0" cy="40.4" rx="4.5" ry="10.8" transform="rotate(-12.0,52.0,40.4)"/>
+<path d="M57.2,116.2 Q53.8,129.0 51.5,137.5" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+<path d="M55.2,85.0 Q62.1,94.8 66.7,101.4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+<path d="M56.0,97.5 Q53.2,107.9 51.3,114.9" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+<path d="M90,160 Q80.0,107.5 70.0,55.0" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<ellipse cx="70.0" cy="60.4" rx="4.5" ry="10.8" transform="rotate(-30.0,70.0,60.4)"/>
+<path d="M83.0,123.2 Q79.6,136.0 77.3,144.5" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+<path d="M78.0,97.0 Q84.9,106.8 89.5,113.4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+<path d="M80.0,107.5 Q77.2,117.9 75.3,124.9" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+<path d="M120,160 Q117.5,101.0 115.0,42.0" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<ellipse cx="115.0" cy="47.4" rx="4.5" ry="10.8" transform="rotate(-7.5,115.0,47.4)"/>
+<path d="M118.2,118.7 Q114.8,131.5 112.6,140.0" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+<path d="M117.0,89.2 Q123.9,99.0 128.5,105.6" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+<path d="M117.5,101.0 Q114.7,111.4 112.8,118.4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+<path d="M150,160 Q141.0,110.0 132.0,60.0" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<ellipse cx="132.0" cy="65.4" rx="4.5" ry="10.8" transform="rotate(-27.0,132.0,65.4)"/>
+<path d="M143.7,125.0 Q140.3,137.8 138.0,146.3" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+<path d="M139.2,100.0 Q146.1,109.8 150.7,116.4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+<path d="M141.0,110.0 Q138.2,120.4 136.3,127.4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+<path d="M40,160 Q42.5,115.0 45.0,70.0" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<ellipse cx="45.0" cy="75.4" rx="4.5" ry="10.8" transform="rotate(7.5,45.0,75.4)"/>
+<path d="M41.8,128.5 Q38.3,141.3 36.1,149.8" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+<path d="M43.0,106.0 Q49.9,115.8 54.5,122.4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+<path d="M42.5,115.0 Q39.7,125.4 37.8,132.4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+<path d="M105,155 Q99.0,112.5 93.0,70.0" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<ellipse cx="93.0" cy="75.4" rx="4.5" ry="10.8" transform="rotate(-18.0,93.0,75.4)"/>
+<path d="M100.8,125.2 Q97.4,138.0 95.1,146.5" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+<path d="M97.8,104.0 Q104.7,113.8 109.3,120.4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+<path d="M99.0,112.5 Q96.2,122.9 94.3,129.9" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+
+</g>
+</svg>

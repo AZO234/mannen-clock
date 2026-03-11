@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<title>月SVGプレビュー</title>
+<style>
+body { background:#1a1428; color:#e8d8b0; font-family:sans-serif; padding:20px; }
+h1 { text-align:center; margin-bottom:20px; }
+.grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.card { border:1px solid rgba(200,160,80,0.3); border-radius:8px; overflow:hidden; }
+.label { padding:6px 10px; font-size:12px; background:rgba(0,0,0,0.3); }
+.dark { background:#1a1428; padding:8px; }
+.light { background:#f5f0e8; padding:8px; }
+.dark img, .light img { width:100%; color:#e8d8b0; }
+.light img { color:#3a2a0a; filter:invert(0); }
+/* SVGのcurrentColorをCSSで制御 */
+.dark img { filter: brightness(1); }
+</style>
+</head><body>
+<h1>和風月SVGプレビュー</h1>
+<div class="grid">
+    <div class="card">
+      <div class="label">睦月（梅の枝）</div>
+      <div class="dark"><img src="/months/01_mutsuki.svg"></div>
+      <div class="light"><img src="/months/01_mutsuki.svg"></div>
+    </div>
+    <div class="card">
+      <div class="label">如月（雪・着物）</div>
+      <div class="dark"><img src="/months/02_kisaragi.svg"></div>
+      <div class="light"><img src="/months/02_kisaragi.svg"></div>
+    </div>
+    <div class="card">
+      <div class="label">弥生（桜）</div>
+      <div class="dark"><img src="/months/03_yayoi.svg"></div>
+      <div class="light"><img src="/months/03_yayoi.svg"></div>
+    </div>
+    <div class="card">
+      <div class="label">卯月（卯の花・蝶）</div>
+      <div class="dark"><img src="/months/04_uzuki.svg"></div>
+      <div class="light"><img src="/months/04_uzuki.svg"></div>
+    </div>
+    <div class="card">
+      <div class="label">皐月（田植え）</div>
+      <div class="dark"><img src="/months/05_satsuki.svg"></div>
+      <div class="light"><img src="/months/05_satsuki.svg"></div>
+    </div>
+    <div class="card">
+      <div class="label">水無月（あじさい・雨）</div>
+      <div class="dark"><img src="/months/06_minazuki.svg"></div>
+      <div class="light"><img src="/months/06_minazuki.svg"></div>
+    </div>
+    <div class="card">
+      <div class="label">文月（七夕・笹）</div>
+      <div class="dark"><img src="/months/07_fumizuki.svg"></div>
+      <div class="light"><img src="/months/07_fumizuki.svg"></div>
+    </div>
+    <div class="card">
+      <div class="label">葉月（落ち葉）</div>
+      <div class="dark"><img src="/months/08_hazuki.svg"></div>
+      <div class="light"><img src="/months/08_hazuki.svg"></div>
+    </div>
+    <div class="card">
+      <div class="label">長月（月・すすき）</div>
+      <div class="dark"><img src="/months/09_nagatsuki.svg"></div>
+      <div class="light"><img src="/months/09_nagatsuki.svg"></div>
+    </div>
+    <div class="card">
+      <div class="label">神無月（鳥居・渡り鳥）</div>
+      <div class="dark"><img src="/months/10_kannazuki.svg"></div>
+      <div class="light"><img src="/months/10_kannazuki.svg"></div>
+    </div>
+    <div class="card">
+      <div class="label">霜月（霜・枯れ枝）</div>
+      <div class="dark"><img src="/months/11_shimotsuki.svg"></div>
+      <div class="light"><img src="/months/11_shimotsuki.svg"></div>
+    </div>
+    <div class="card">
+      <div class="label">師走（除夜の鐘）</div>
+      <div class="dark"><img src="/months/12_shiwasu.svg"></div>
+      <div class="light"><img src="/months/12_shiwasu.svg"></div>
+    </div></div>
+<p style="text-align:center;margin-top:20px;font-size:11px;opacity:0.5">上段:ダーク / 下段:ライト（currentColor適用）</p>
+</body></html>
