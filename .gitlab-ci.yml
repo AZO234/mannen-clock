@@ -1,0 +1,65 @@
+image: node:20-alpine
+
+stages:
+  - install
+  - check
+  - build
+  - deploy
+
+cache:
+  key:
+    files: [package-lock.json]
+  paths:
+    - node_modules/
+
+# ── 依存インストール ──────────────────────────────────────
+install:
+  stage: install
+  script:
+    - npm ci
+  artifacts:
+    paths:
+      - node_modules/
+    expire_in: 1 hour
+
+# ── 静的解析 ──────────────────────────────────────────────
+lint:
+  stage: check
+  needs: [install]
+  script:
+    - npm run lint
+
+typecheck:
+  stage: check
+  needs: [install]
+  script:
+    - npm run typecheck
+
+# ── ビルド ────────────────────────────────────────────────
+build:
+  stage: build
+  needs: [lint, typecheck]
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 day
+  only:
+    - main
+    - merge_requests
+
+# ── GitLab Pages デプロイ ─────────────────────────────────
+pages:
+  stage: deploy
+  needs: [build]
+  script:
+    # GitLab Pages は public/ ディレクトリを使用する
+    - mv dist public
+  artifacts:
+    paths:
+      - public/
+  only:
+    - main
+  environment:
+    name: production
