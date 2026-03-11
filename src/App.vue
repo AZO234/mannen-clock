@@ -1,38 +1,48 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import SkyBar  from '@/components/SkyBar.vue'
 import EtoBar  from '@/components/EtoBar.vue'
 import WarekiCalendar from '@/components/WarekiCalendar.vue'
+import ThemeToggle from '@/components/ThemeToggle.vue'
 
-// SkyBar が取得した日の出・入り（分）を EtoBar へ渡す
-const sunriseMins = ref(360)   // デフォルト 06:00
-const sunsetMins  = ref(1080)  // デフォルト 18:00
-
+const sunriseMins = ref(360)
+const sunsetMins  = ref(1080)
 function onSkyReady(sr: number, ss: number) {
   sunriseMins.value = sr
   sunsetMins.value  = ss
 }
+
+// テーマ: localStorage で永続化
+const isDark = ref(localStorage.getItem('theme') !== 'light')
+function applyTheme(dark: boolean) {
+  document.body.setAttribute('data-theme', dark ? 'dark' : 'light')
+  localStorage.setItem('theme', dark ? 'dark' : 'light')
+}
+applyTheme(isDark.value)
+watch(isDark, v => applyTheme(v))
 </script>
 
 <template>
   <header class="site-header">
-    <h1 class="site-title">Web 万年時計</h1>
-    <p class="site-sub">Inspired by 田中久重「万年自鳴鐘」(1851)</p>
+    <div class="header-inner">
+      <div class="header-titles">
+        <h1 class="site-title">Web 万年時計</h1>
+        <p class="site-sub">Inspired by 田中久重「万年自鳴鐘」(1851)</p>
+      </div>
+      <ThemeToggle v-model="isDark" />
+    </div>
   </header>
 
-  <!-- 空バー（天気・太陽・月） -->
   <section class="section">
     <div class="section-label">天象</div>
     <SkyBar @ready="onSkyReady" />
   </section>
 
-  <!-- 和時計（干支・不定時法） -->
   <section class="section">
     <div class="section-label">和時刻</div>
     <EtoBar :sunrise-mins="sunriseMins" :sunset-mins="sunsetMins" />
   </section>
 
-  <!-- 和暦カレンダー -->
   <section class="section">
     <div class="section-label">和暦</div>
     <WarekiCalendar />
@@ -41,22 +51,35 @@ function onSkyReady(sr: number, ss: number) {
 
 <style scoped>
 .site-header {
-  text-align: center;
   padding: 0.5rem 0 0.2rem;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  position: relative;
+}
+.header-titles {
+  text-align: center;
 }
 .site-title {
   font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
   font-size: 1.6rem;
   font-weight: 400;
   letter-spacing: 0.2em;
-  color: #e8d8b0;
+  color: var(--gold);
+  transition: color 0.3s;
 }
 .site-sub {
   font-size: 0.65rem;
-  color: rgba(200,184,144,0.45);
+  color: var(--fg-label);
   letter-spacing: 0.1em;
   margin-top: 0.3rem;
+  transition: color 0.3s;
 }
+
+
 
 .section {
   display: flex;
@@ -66,7 +89,8 @@ function onSkyReady(sr: number, ss: number) {
 .section-label {
   font-size: 0.6rem;
   letter-spacing: 0.15em;
-  color: rgba(200,184,144,0.35);
+  color: var(--fg-label);
   font-family: 'Hiragino Mincho ProN', serif;
+  transition: color 0.3s;
 }
 </style>

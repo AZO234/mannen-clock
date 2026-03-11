@@ -1,4 +1,4 @@
-# Web 万年時計
+# Web 万年時計 試作
 
 田中久重「万年自鳴鐘」(1851) に着想を得た Web ガジェット。
 
@@ -15,7 +15,6 @@
 | API | 用途 |
 |---|---|
 | [Open-Meteo](https://open-meteo.com/) | 天気予報・気温・降水量（無料・認証不要） |
-| [getjst.php](https://domisan.sakura.ne.jp/getjst.php) | NTP 64bit 値による正確な JST 取得 |
 
 旧暦・二十四節気・月齢・雑節はすべて **外部 API 不使用・天文略算式のみ**で計算。
 
@@ -33,7 +32,7 @@ npm run preview   # ビルド確認
 ### GitHub Pages
 
 1. `vite.config.ts` の `base` をリポジトリ名に合わせる  
-   例: `base: '/mannen-dokei/'`
+   例: `base: '/mannen-clock/'`
 2. GitHub リポジトリの Settings → Pages → Source を **GitHub Actions** に設定
 3. `main` ブランチへ push すると自動デプロイ
 
@@ -44,4 +43,4 @@ npm run preview   # ビルド確認
 
 ## ライセンス
 
-MIT
+GNU

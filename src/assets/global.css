@@ -1,10 +1,42 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* ── テーマ変数 ── */
+:root {
+  --bg:          #111018;
+  --bg-section:  rgba(255,255,255,0.035);
+  --bg-hover:    rgba(255,255,255,0.085);
+  --fg:          #e8e0d0;
+  --fg-muted:    rgba(200,184,144,0.55);
+  --fg-label:    rgba(200,184,144,0.35);
+  --gold:        #e8d8b0;
+  --gold-muted:  rgba(200,184,144,0.65);
+  --modal-bg:    #1a1428;
+  --modal-border:rgba(200,160,80,0.25);
+  --cell-today-bg: rgba(200,160,80,0.15);
+  --cell-today-ring: rgba(200,160,80,0.4);
+}
+
+[data-theme="light"] {
+  --bg:          #f5f0e8;
+  --bg-section:  rgba(0,0,0,0.04);
+  --bg-hover:    rgba(0,0,0,0.08);
+  --fg:          #2a2318;
+  --fg-muted:    rgba(80,60,30,0.6);
+  --fg-label:    rgba(80,60,30,0.4);
+  --gold:        #5a4010;
+  --gold-muted:  rgba(100,70,20,0.75);
+  --modal-bg:    #ede8de;
+  --modal-border:rgba(140,100,40,0.35);
+  --cell-today-bg: rgba(160,110,20,0.12);
+  --cell-today-ring: rgba(160,110,20,0.5);
+}
+
 html, body {
-  background: #111018;
-  color: #e8e0d0;
+  background: var(--bg);
+  color: var(--fg);
   font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
   min-height: 100vh;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 #app {

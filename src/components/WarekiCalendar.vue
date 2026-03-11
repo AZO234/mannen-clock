@@ -474,13 +474,13 @@ const modalNextSekki = computed(() => {
 .cal-wrap { font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif; }
 
 .nav { display:flex; align-items:center; justify-content:center; gap:1.2rem; margin-bottom:1rem; text-align:center; }
-.nav-btn { background:none; border:1px solid rgba(255,255,255,0.2); color:#c8b890; font-size:1.1rem; width:2.2rem; height:2.2rem; border-radius:50%; cursor:pointer; transition:background 0.2s; display:flex; align-items:center; justify-content:center; }
-.nav-btn:hover { background:rgba(255,255,255,0.08); }
-.month-title { font-size:1.6rem; font-weight:400; letter-spacing:0.12em; color:#e8d8b0; }
-.month-sub   { font-size:0.72rem; color:rgba(200,184,144,0.65); letter-spacing:0.08em; font-family:'Hiragino Sans',sans-serif; }
+.nav-btn { background:none; border:1px solid rgba(255,255,255,0.2); color:var(--gold); font-size:1.1rem; width:2.2rem; height:2.2rem; border-radius:50%; cursor:pointer; transition:background 0.2s; display:flex; align-items:center; justify-content:center; }
+.nav-btn:hover { background:var(--bg-hover); }
+.month-title { font-size:1.6rem; font-weight:400; letter-spacing:0.12em; color:var(--gold); }
+.month-sub   { font-size:0.72rem; color:var(--gold-muted); letter-spacing:0.08em; font-family:'Hiragino Sans',sans-serif; }
 
 .weekdays { display:grid; grid-template-columns:repeat(7,1fr); gap:3px; margin-bottom:3px; }
-.weekday  { text-align:center; font-size:0.68rem; font-family:'Hiragino Sans',sans-serif; padding:0.3rem 0; color:rgba(200,184,144,0.55); }
+.weekday  { text-align:center; font-size:0.68rem; font-family:'Hiragino Sans',sans-serif; padding:0.3rem 0; color:var(--fg-muted); }
 .weekday.sun { color:rgba(220,100,80,0.7); }
 .weekday.sat { color:rgba(80,140,220,0.7); }
 
@@ -489,35 +489,35 @@ const modalNextSekki = computed(() => {
 .cell {
   aspect-ratio:3/2; border-radius:6px; padding:0.35rem 0.4rem 0.3rem;
   display:flex; flex-direction:column; gap:0.12rem;
-  background:rgba(255,255,255,0.035);
+  background:var(--bg-section);
   transition:background 0.15s; overflow:hidden;
   cursor:pointer;
 }
-.cell:hover   { background:rgba(255,255,255,0.085); }
+.cell:hover   { background:var(--bg-hover); }
 .cell.empty   { background:transparent; pointer-events:none; }
-.cell.today   { background:rgba(200,160,80,0.15); box-shadow:inset 0 0 0 1px rgba(200,160,80,0.4); }
+.cell.today   { background:var(--cell-today-bg); box-shadow:inset 0 0 0 1px var(--cell-today-ring); }
 .cell.sunday   .day-num { color:#e06050; }
 .cell.saturday .day-num { color:#5090d8; }
 .cell.holiday  .day-num { color:#e06050; }
 .cell.today .day-num { position:relative; }
 .cell.today .day-num::after { content:''; position:absolute; inset:-0.15em; border-radius:50%; background:rgba(200,160,60,0.25); z-index:-1; }
 
-.day-num     { font-size:1.05rem; font-weight:600; line-height:1; color:#e8dcc8; font-family:'Hiragino Sans',sans-serif; }
-.lunar       { font-size:0.58rem; color:rgba(200,184,144,0.65); line-height:1.1; }
+.day-num     { font-size:1.05rem; font-weight:600; line-height:1; color:var(--fg); font-family:'Hiragino Sans',sans-serif; }
+.lunar       { font-size:0.58rem; color:var(--gold-muted); line-height:1.1; }
 .lunar-month { font-size:0.54rem; color:rgba(220,180,100,0.8); font-weight:600; }
 .rokuyou     { font-size:0.6rem; line-height:1; font-family:'Hiragino Sans',sans-serif; }
 .rokuyou.taian      { color:#e8a840; font-weight:700; }
 .rokuyou.butsumetsu { color:#a070c0; }
 .rokuyou.shakkou    { color:#c05050; }
-.rokuyou.sensho     { color:rgba(200,184,144,0.65); }
-.rokuyou.tomobiki   { color:rgba(200,184,144,0.55); }
-.rokuyou.senbu      { color:rgba(200,184,144,0.55); }
+.rokuyou.sensho     { color:var(--gold-muted); }
+.rokuyou.tomobiki   { color:var(--fg-muted); }
+.rokuyou.senbu      { color:var(--fg-muted); }
 .sekki    { font-size:0.56rem; color:#70c8a0; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-family:'Hiragino Sans',sans-serif; }
 .sekku    { font-size:0.54rem; color:#f0a0c0; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-family:'Hiragino Sans',sans-serif; }
 .zassetsu { font-size:0.52rem; color:#a8c870; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-family:'Hiragino Sans',sans-serif; }
 .holiday-name { font-size:0.48rem; color:rgba(220,100,80,0.8); line-height:1.2; overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; font-family:'Hiragino Sans',sans-serif; }
 
-.legend { margin-top:1.2rem; display:flex; flex-wrap:wrap; gap:0.6rem 1.4rem; justify-content:center; font-size:0.62rem; color:rgba(200,184,144,0.5); font-family:'Hiragino Sans',sans-serif; }
+.legend { margin-top:1.2rem; display:flex; flex-wrap:wrap; gap:0.6rem 1.4rem; justify-content:center; font-size:0.62rem; color:var(--fg-muted); font-family:'Hiragino Sans',sans-serif; }
 .legend-item { display:flex; align-items:center; gap:0.3rem; }
 .legend-dot  { width:0.5rem; height:0.5rem; border-radius:50%; }
 
@@ -535,7 +535,7 @@ const modalNextSekki = computed(() => {
   width:min(680px, 100%);
   max-height:90vh;
   overflow-y:auto;
-  background:linear-gradient(160deg, #1a1428 0%, #0e1020 100%);
+  background:linear-gradient(160deg, var(--modal-bg) 0%, #0e1020 100%);
   border:1px solid rgba(200,184,100,0.25);
   border-radius:12px;
   padding:1.8rem 2rem 2rem;
@@ -553,19 +553,19 @@ const modalNextSekki = computed(() => {
 
 .modal-close {
   position:absolute; top:0.9rem; right:1rem;
-  background:none; border:none; color:rgba(200,184,144,0.5);
+  background:none; border:none; color:var(--fg-muted);
   font-size:1rem; cursor:pointer; line-height:1;
   transition:color 0.2s;
 }
-.modal-close:hover { color:rgba(200,184,144,1); }
+.modal-close:hover { color:var(--gold); }
 
 /* ヘッダー */
 .modal-head { margin-bottom:1.2rem; padding-bottom:0.8rem; border-bottom:1px solid rgba(200,184,100,0.15); }
 .modal-date { display:flex; align-items:baseline; gap:0.5rem; flex-wrap:wrap; }
-.modal-day-num { font-size:1.5rem; font-weight:400; color:#e8d8b0; letter-spacing:0.05em; }
+.modal-day-num { font-size:1.5rem; font-weight:400; color:var(--gold); letter-spacing:0.05em; }
 .modal-day-num.is-sun, .modal-day-num.is-holiday { color:#e87060; }
 .modal-day-num.is-sat { color:#70a0e0; }
-.modal-dow { font-size:0.9rem; color:rgba(200,184,144,0.6); }
+.modal-dow { font-size:0.9rem; color:var(--fg-muted); }
 .modal-dow.is-sun { color:rgba(220,120,100,0.8); }
 .modal-dow.is-sat { color:rgba(100,160,220,0.8); }
 .modal-today-badge {
@@ -589,10 +589,10 @@ const modalNextSekki = computed(() => {
   text-transform:uppercase;
 }
 .modal-item-big {
-  font-size:1.15rem; color:#e8d8b0; line-height:1.3; letter-spacing:0.05em;
+  font-size:1.15rem; color:var(--gold); line-height:1.3; letter-spacing:0.05em;
 }
 .modal-item-sub {
-  font-size:0.68rem; color:rgba(200,184,144,0.55); line-height:1.5;
+  font-size:0.68rem; color:var(--fg-muted); line-height:1.5;
   font-family:'Hiragino Sans',sans-serif; margin-top:0.2rem;
 }
 
@@ -602,7 +602,7 @@ const modalNextSekki = computed(() => {
 .rokuyou-big.shakkou    { color:#c05050; }
 .rokuyou-big.sensho,
 .rokuyou-big.tomobiki,
-.rokuyou-big.senbu      { color:#c8b890; }
+.rokuyou-big.senbu      { color:var(--gold); }
 
 /* 月齢バー */
 .modal-moon-bar {
@@ -618,7 +618,7 @@ const modalNextSekki = computed(() => {
 
 /* 干支 */
 .modal-kanshi-row { display:flex; align-items:baseline; gap:0.6rem; }
-.modal-kanshi-big { font-size:1.8rem; color:#e8d8b0; letter-spacing:0.1em; }
+.modal-kanshi-big { font-size:1.8rem; color:var(--gold); letter-spacing:0.1em; }
 .modal-kanshi-emoji { font-size:1.4rem; }
 
 .modal-tags { display:flex; flex-wrap:wrap; gap:0.35rem; margin-top:0.5rem; }
@@ -634,7 +634,7 @@ const modalNextSekki = computed(() => {
 .sekki-big    { color:#70c8a0; }
 .sekku-big    { color:#f0a0c0; }
 .zassetsu-big { color:#a8c870; }
-.modal-next-sekki { font-size:0.68rem; color:rgba(200,184,144,0.45); font-family:'Hiragino Sans',sans-serif; margin-top:0.4rem; }
+.modal-next-sekki { font-size:0.68rem; color:var(--fg-label); font-family:'Hiragino Sans',sans-serif; margin-top:0.4rem; }
 .modal-next-sekki strong { color:rgba(112,200,160,0.8); }
 
 /* ── トランジション ────────────────────────────────────── */
