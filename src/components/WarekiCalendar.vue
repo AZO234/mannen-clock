@@ -3,7 +3,7 @@ import { ref, computed } from 'vue'
 import {
   toLunar, zassetsu, sekki, sekku,
   lunarMonthName, lunarDayName, rokuyou,
-  toKanshi, toDayKanshi, toMonthKanshi,
+  toKanshi, toDayKanshi, toMonthKanshiFromDate,
   moonPhase, moonPhaseName,
   nextSekki,
 } from 'wa-datetime'
@@ -172,7 +172,7 @@ const calendarData = computed(() => {
     const kanYear = (m === 1 || (m === 2 && d <= 3)) ? y - 1 : y
     const ks   = toKanshi(kanYear)
     const dks  = toDayKanshi(date)
-    const mks  = toMonthKanshi(lun.year, lun.month)
+    const mks  = toMonthKanshiFromDate(date)
 
     if (lun.day === 1)
       lunarMonths.add((lun.isLeap ? '閏' : '') + lunarMonthName(lun.month, lun.isLeap))

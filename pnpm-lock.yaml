@@ -1045,7 +1045,7 @@ packages:
         optional: true
 
   wa-datetime@file:vendor/wa-datetime-0.1.0.tgz:
-    resolution: {integrity: sha512-6jqkP4PaVu7pYhRijWaBLzXpjJAnfbRE/fDrPufQ32w6AO2bKCSbQRO+Xdbf5P/0R5a94pM2dtIJGlnFxSBhCA==, tarball: file:vendor/wa-datetime-0.1.0.tgz}
+    resolution: {integrity: sha512-K+8l7WqEsaD//oFrMJsTx0iOa6XOYc5ETW7fEGjea+c717x/707gwdOwoYZ5afknPUj7dw0u90PH5CRIp79rrQ==, tarball: file:vendor/wa-datetime-0.1.0.tgz}
     version: 0.1.0
 
   which@2.0.2:
