@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160" width="400" height="160">
 <g fill="currentColor">
 <path d="M278,13 Q280,20.8 278,26 Q276,20.8 278,13 Z"/>
 <path d="M320,41 Q322,46.4 320,50 Q318,46.4 320,41 Z"/>
@@ -140,8 +140,8 @@
 <circle cx="196.6" cy="66.5" r="1.6"/>
 <path d="M90,120 Q60,110 50,90 Q65,85 90,95 Z"/>
 <path d="M185,115 Q210,105 218,88 Q200,82 185,95 Z"/>
-<path d="M90,120 Q92,140 95,160" stroke="currentColor" stroke-width="4" fill="none"/>
-<path d="M185,115 Q187,135 188,160" stroke="currentColor" stroke-width="4" fill="none"/>
+<path d="M90,120 Q92,140 95,160" stroke="currentColor" stroke-width="4" fill="currentColor"/>
+<path d="M185,115 Q187,135 188,160" stroke="currentColor" stroke-width="4" fill="currentColor"/>
 
 </g>
 </svg>

@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160" width="400" height="160">
 <g fill="currentColor">
 <path d="M85,52 Q95,38 110,30 Q125,22 142,20 Q158,18 172,22 Q186,26 195,36 Q205,46 208,55 L85,55 Z"/>
 <path d="M85,55 Q82,85 83,105 Q84,125 88,138 Q95,152 115,158 Q130,162 142,162 Q158,162 170,158 Q188,152 195,138 Q200,125 200,105 Q200,85 197,55 Z"/>
-<path d="M230,50 Q245,55 255,62" stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round"/>
-<path d="M255,62 Q270,75 272,92 Q274,108 265,118" stroke="currentColor" stroke-width="6" fill="none" stroke-linecap="round"/>
-<path d="M252,55 Q256,48 262,44 Q268,40 274,42" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M230,50 Q245,55 255,62" stroke="currentColor" stroke-width="6" fill="currentColor" stroke-linecap="round"/>
+<path d="M255,62 Q270,75 272,92 Q274,108 265,118" stroke="currentColor" stroke-width="6" fill="currentColor" stroke-linecap="round"/>
+<path d="M252,55 Q256,48 262,44 Q268,40 274,42" stroke="currentColor" stroke-width="4" fill="currentColor" stroke-linecap="round"/>
 <rect x="85.0" y="78.0" width="113.0" height="5.0" rx="1.0"/>
 <rect x="85.0" y="115.0" width="113.0" height="5.0" rx="1.0"/>
 <circle cx="95.0" cy="65.0" r="4.0"/>

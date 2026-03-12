@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160" width="400" height="160">
 <g fill="currentColor">
-<path d="M120,160 Q115,130 110,100 Q105,70 120,45 Q135,20 160,10" stroke="currentColor" stroke-width="9" fill="none" stroke-linecap="round"/>
-<path d="M120,100 Q140,85 165,80 Q185,75 205,80" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round"/>
-<path d="M115,65 Q100,55 85,50 Q70,46 55,50" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/>
-<path d="M130,50 Q145,42 160,38" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+<path d="M120,160 Q115,130 110,100 Q105,70 120,45 Q135,20 160,10" stroke="currentColor" stroke-width="9" fill="currentColor" stroke-linecap="round"/>
+<path d="M120,100 Q140,85 165,80 Q185,75 205,80" stroke="currentColor" stroke-width="5" fill="currentColor" stroke-linecap="round"/>
+<path d="M115,65 Q100,55 85,50 Q70,46 55,50" stroke="currentColor" stroke-width="4" fill="currentColor" stroke-linecap="round"/>
+<path d="M130,50 Q145,42 160,38" stroke="currentColor" stroke-width="3" fill="currentColor" stroke-linecap="round"/>
 <circle cx="160.0" cy="-6.0" r="6.3"/>
 <circle cx="173.3" cy="3.7" r="6.3"/>
 <circle cx="168.2" cy="19.3" r="6.3"/>

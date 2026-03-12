@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160" width="400" height="160">
 <g fill="currentColor">
-<path d="M80,160 Q90,130 100,100 Q112,70 130,50 Q148,32 170,22" stroke="currentColor" stroke-width="7" fill="none" stroke-linecap="round"/>
-<path d="M130,50 Q155,45 178,48 Q198,50 215,58" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/>
-<path d="M108,75 Q90,68 70,65 Q55,63 42,68" stroke="currentColor" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+<path d="M80,160 Q90,130 100,100 Q112,70 130,50 Q148,32 170,22" stroke="currentColor" stroke-width="7" fill="currentColor" stroke-linecap="round"/>
+<path d="M130,50 Q155,45 178,48 Q198,50 215,58" stroke="currentColor" stroke-width="4" fill="currentColor" stroke-linecap="round"/>
+<path d="M108,75 Q90,68 70,65 Q55,63 42,68" stroke="currentColor" stroke-width="3.5" fill="currentColor" stroke-linecap="round"/>
 <ellipse cx="174.2" cy="24.2" rx="5.0" ry="7.0" transform="rotate(135.0,174.2,24.2)"/>
 <ellipse cx="165.8" cy="24.2" rx="5.0" ry="7.0" transform="rotate(225.0,165.8,24.2)"/>
 <ellipse cx="165.8" cy="15.8" rx="5.0" ry="7.0" transform="rotate(315.0,165.8,15.8)"/>

@@ -309,6 +309,8 @@ const modalNextSekki = computed(() => {
 <!---------------------------------------------------------------------------->
 <template>
   <div class="cal-wrap">
+    <!-- 月シルエット（カレンダー全体背景） -->
+    <img :src="navSvgSrc" class="cal-silhouette" aria-hidden="true"/>
 
     <!-- ナビ -->
     <div class="nav">
@@ -323,8 +325,7 @@ const modalNextSekki = computed(() => {
         </div>
       </div>
       <button class="nav-btn" @click="nextMonth">▶</button>
-      <!-- 月シルエット -->
-      <div class="nav-silhouette" :style="{ maskImage: `url(${navSvgSrc})`, webkitMaskImage: `url(${navSvgSrc})` }" aria-hidden="true"/>
+
     </div>
 
     <!-- 曜日ヘッダー -->
@@ -523,11 +524,26 @@ const modalNextSekki = computed(() => {
 <!---------------------------------------------------------------------------->
 <style scoped>
 /* ── カレンダー本体 ─────────────────────────────────────── */
-.cal-wrap { font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif; }
+.cal-wrap { font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif; position:relative; overflow:hidden; }
 
 .nav { display:flex; align-items:center; justify-content:center; gap:1.2rem; margin-bottom:1rem; text-align:center; position:relative; min-height:4rem; padding:0.5rem 1rem; border-radius:8px; overflow:hidden; }
-.nav-silhouette { position:absolute; right:0; top:0; bottom:0; width:55%; background:var(--gold); mask-repeat:no-repeat; mask-position:center right; mask-size:contain; -webkit-mask-repeat:no-repeat; -webkit-mask-position:center right; -webkit-mask-size:contain; opacity:0.13; pointer-events:none; transition:opacity 0.3s; }
-[data-theme="light"] .nav-silhouette { opacity:0.10; }
+.cal-silhouette {
+  position:absolute;
+  right: -2%;
+  bottom: -5%;
+  width: 72%;
+  height: auto;
+  opacity: 0.10;
+  pointer-events: none;
+  z-index: 0;
+  /* ダークテーマ: gold色に */
+  filter: invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(1.2);
+}
+[data-theme="light"] .cal-silhouette {
+  opacity: 0.08;
+  filter: sepia(1) saturate(1.5) brightness(0.3);
+}
+.nav, .weekdays, .grid, .legend { position:relative; z-index:1; }
 .nav-btn { background:none; border:1px solid rgba(255,255,255,0.2); color:var(--gold); font-size:1.1rem; width:2.2rem; height:2.2rem; border-radius:50%; cursor:pointer; transition:background 0.2s; display:flex; align-items:center; justify-content:center; }
 .nav-btn:hover { background:var(--bg-hover); }
 .month-title { font-size:1.6rem; font-weight:400; letter-spacing:0.12em; color:var(--gold); }
@@ -593,7 +609,7 @@ const modalNextSekki = computed(() => {
   width:min(680px, 100%);
   max-height:90vh;
   overflow-y:auto;
-  background:linear-gradient(160deg, var(--modal-bg) 0%, #0e1020 100%);
+  background:linear-gradient(160deg, var(--modal-bg) 0%, var(--modal-bg-deep) 100%);
   border:1px solid rgba(200,184,100,0.25);
   border-radius:12px;
   padding:1.8rem 2rem 2rem;

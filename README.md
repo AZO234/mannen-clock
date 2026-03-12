@@ -15,7 +15,6 @@
 | API | 用途 |
 |---|---|
 | [Open-Meteo](https://open-meteo.com/) | 天気予報・気温・降水量（無料・認証不要） |
-| [getjst.php](https://domisan.sakura.ne.jp/getjst.php) | NTP 64bit 値による正確な JST 取得 |
 
 旧暦・二十四節気・月齢・雑節はすべて **外部 API 不使用・天文略算式のみ**で計算。
 
@@ -44,4 +43,4 @@ npm run preview   # ビルド確認
 
 ## ライセンス
 
-MIT
+GNU General Public License v3.0

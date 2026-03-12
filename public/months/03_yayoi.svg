@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160" width="400" height="160">
 <g fill="currentColor">
-<path d="M100,160 Q105,130 115,105 Q125,80 140,60 Q155,40 175,25" stroke="currentColor" stroke-width="8" fill="none" stroke-linecap="round"/>
-<path d="M140,60 Q160,55 185,58 Q205,60 220,68" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round"/>
-<path d="M125,90 Q105,85 85,82 Q68,80 52,85" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/>
-<path d="M155,42 Q160,30 168,20" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+<path d="M100,160 Q105,130 115,105 Q125,80 140,60 Q155,40 175,25" stroke="currentColor" stroke-width="8" fill="currentColor" stroke-linecap="round"/>
+<path d="M140,60 Q160,55 185,58 Q205,60 220,68" stroke="currentColor" stroke-width="5" fill="currentColor" stroke-linecap="round"/>
+<path d="M125,90 Q105,85 85,82 Q68,80 52,85" stroke="currentColor" stroke-width="4" fill="currentColor" stroke-linecap="round"/>
+<path d="M155,42 Q160,30 168,20" stroke="currentColor" stroke-width="3" fill="currentColor" stroke-linecap="round"/>
 <ellipse cx="182.8" cy="22.0" rx="4.9" ry="7.2" transform="rotate(90.0,182.8,22.0)"/>
 <ellipse cx="177.4" cy="29.4" rx="4.9" ry="7.2" transform="rotate(162.0,177.4,29.4)"/>
 <ellipse cx="168.7" cy="26.6" rx="4.9" ry="7.2" transform="rotate(234.0,168.7,26.6)"/>
