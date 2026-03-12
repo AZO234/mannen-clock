@@ -620,7 +620,7 @@ const modalNextSekki = computed(() => {
 .modal-box::before {
   content:'';
   position:absolute; inset:8px;
-  border:1px solid rgba(200,184,100,0.08);
+  border:1px solid var(--modal-inner-border);
   border-radius:8px;
   pointer-events:none;
 }

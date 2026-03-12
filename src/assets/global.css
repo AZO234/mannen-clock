@@ -13,6 +13,7 @@
   --modal-bg:    #1a1428;
   --modal-bg-deep: #0e1020;
   --modal-border:rgba(200,160,80,0.25);
+  --modal-inner-border: rgba(200,184,100,0.08);
   --cell-today-bg: rgba(200,160,80,0.15);
   --cell-today-ring: rgba(200,160,80,0.4);
 }
@@ -29,6 +30,7 @@
   --modal-bg:    #ede8de;
   --modal-bg-deep: #ddd5c8;
   --modal-border:rgba(140,100,40,0.35);
+  --modal-inner-border: rgba(120,80,20,0.25);
   --cell-today-bg: rgba(160,110,20,0.12);
   --cell-today-ring: rgba(160,110,20,0.5);
 }
