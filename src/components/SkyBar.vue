@@ -475,7 +475,7 @@ onUnmounted(() => { clearInterval(clockTick); clearInterval(refreshTick) })
   width: 9em;
   transition: background 0.3s ease, color 0.8s ease;
 }
-.side--right.hovering { background: rgba(80,120,180,0.5) !important; }
+
 
 /* ── 右パネル内要素 ── */
 .side__hhmm {
