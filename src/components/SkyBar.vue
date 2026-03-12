@@ -149,7 +149,7 @@ function buildCells(p: SkyParams, latDeg = 35.0) {
       '--sky-bot':     col.bot,
       '--sun-y':       sa>0 ? `${(100-sa*(20+scale*65)).toFixed(1)}%` : '110%',
       '--sun-op':      sa>0 ? '1' : '0',
-      '--moon-y':      ma>0 ? `${(100-ma*75).toFixed(1)}%` : '110%',
+      '--moon-y':      ma>0 ? `${(100-ma*59).toFixed(1)}%` : '110%',
       '--moon-op':     ma>0 ? Math.min(1,ma+0.3).toFixed(2) : '0',
       '--moon-shadow': moonShadow(p.moonPhase),
       '--cloud-op':    cloud.toFixed(2),
