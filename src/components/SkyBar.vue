@@ -288,7 +288,21 @@ async function init() {
     lat = pos.coords.latitude
     lon = pos.coords.longitude
     latRef.value = lat
-    locName = `${lat.toFixed(2)}°N ${lon.toFixed(2)}°E`
+    // 逆ジオコーディング（Nominatim）
+    try {
+      const geo = await fetch(
+        `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json&accept-language=ja`,
+        { headers: { 'User-Agent': 'mannen-dokei/4.0' } }
+      )
+      const gj = await geo.json()
+      const a = gj.address ?? {}
+      const city = a.city || a.town || a.village || a.municipality || ''
+      const district = a.city_district || a.suburb || ''
+      const pref = a.province || a.state || ''
+      locName = [pref, city, district].filter(Boolean).join('') || `${lat.toFixed(2)}°N ${lon.toFixed(2)}°E`
+    } catch {
+      locName = `${lat.toFixed(2)}°N ${lon.toFixed(2)}°E`
+    }
   } catch { /* Geolocation失敗 → フォールバック座標を使用 */ }
   try {
     await fetchData(lat, lon, locName)

@@ -53,7 +53,7 @@ function setFontSize(s: FontSize) {
   <header class="site-header">
     <div class="header-inner">
       <div class="header-titles">
-        <h1 class="site-title">Web 万年時計</h1>
+        <h1 class="site-title">Web万年時計</h1>
         <p class="site-sub">Inspired by 田中久重「万年自鳴鐘」(1851)</p>
       </div>
     </div>
