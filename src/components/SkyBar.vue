@@ -188,6 +188,11 @@ const nowHHMM = computed(()=>{
   const m=String(now.value.getMinutes()).padStart(2,'0')
   return `${h}:${m}`
 })
+function minsToHHMM(mins: number): string {
+  return `${String(Math.floor(mins/60)).padStart(2,'0')}:${String(mins%60).padStart(2,'0')}`
+}
+const sunriseHHMM = computed(()=> sky.value ? minsToHHMM(sky.value.sunriseMins) : '--:--')
+const sunsetHHMM  = computed(()=> sky.value ? minsToHHMM(sky.value.sunsetMins)  : '--:--')
 const isDay = computed(()=>
   sky.value ? nowMins.value>sky.value.sunriseMins && nowMins.value<sky.value.sunsetMins : false
 )
@@ -350,6 +355,10 @@ onUnmounted(() => { clearInterval(clockTick); clearInterval(refreshTick) })
         <template v-if="!loading && sky">
           <span class="side__loc">{{ sky.locationName }}</span>
           <span class="side__time">{{ nowHHMM }}</span>
+          <div class="side__sunrow">
+            <span class="side__suntime">日出 {{ sunriseHHMM }}</span>
+            <span class="side__suntime">日没 {{ sunsetHHMM }}</span>
+          </div>
         </template>
         <span v-else class="side__spin">…</span>
       </div>
@@ -504,6 +513,20 @@ onUnmounted(() => { clearInterval(clockTick); clearInterval(refreshTick) })
   font-size: 0.85em;
   font-weight: 700;
   letter-spacing: 0.03em;
+}
+.side__sunrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.05em;
+  margin-top: 0.2em;
+  width: 100%;
+}
+.side__suntime {
+  font-size: 0.6em;
+  opacity: 0.75;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
 /* ── 詳細（降水・雲・風）── */
