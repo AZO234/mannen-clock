@@ -290,4 +290,19 @@ const currentEtoMeta = computed(() => {
   letter-spacing: 0.04em;
   color: var(--fg-muted);
 }
+
+/* ═══════════════════════════════════════════════════════════
+   スマホ対応 (768px以下)
+═══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .koku__kanji {
+    font-size: 0.75em;
+  }
+  .koku__number {
+    font-size: 0.24em;
+  }
+  .koku__sub {
+    font-size: 0.20em;
+  }
+}
 </style>

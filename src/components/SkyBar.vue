@@ -675,4 +675,42 @@ onUnmounted(() => { clearInterval(clockTick); clearInterval(refreshTick) })
 }
 
 @keyframes pulse { 0%,100%{opacity:0.3} 50%{opacity:0.85} }
+
+/* ═══════════════════════════════════════════════════════════
+   スマホ対応 (768px以下)
+═══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+    align-items: stretch;
+    height: auto !important;
+  }
+  .side {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0.3em 0.6em;
+    border-radius: 0;
+  }
+  .side--left {
+    border-radius: 0.35em 0.35em 0 0;
+  }
+  .side--right {
+    border-radius: 0 0 0.35em 0.35em;
+    width: 100% !important;
+    position: static !important;
+  }
+  .side__sunrow {
+    flex-direction: row;
+    gap: 0.8em;
+    margin-top: 0;
+  }
+  .bar {
+    border-radius: 0 !important;
+    flex: none !important;
+    height: 7em !important;
+    width: 100% !important;
+    min-height: 7em !important;
+  }
+}
 </style>
