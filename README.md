@@ -14,9 +14,13 @@
 
 | API | 用途 |
 |---|---|
-| [Open-Meteo](https://open-meteo.com/) | 天気予報・気温・降水量（無料・認証不要） |
+| [Open-Meteo](https://open-meteo.com/) | 天気予報・気温・降水量・日出日没時刻（無料・認証不要） |
+| [Nominatim](https://nominatim.openstreetmap.org/) | 逆ジオコーディング — 緯度経度から地名取得（OpenStreetMap、無料・認証不要） |
 
 旧暦・二十四節気・月齢・雑節はすべて **外部 API 不使用・天文略算式のみ**で計算。
+
+> **Nominatim 利用規約**: リクエストには `User-Agent` ヘッダーの付与が必要です。
+> 大量リクエストは禁止されており、本アプリは位置情報取得時に1回のみ呼び出します。
 
 ## セットアップ
 
