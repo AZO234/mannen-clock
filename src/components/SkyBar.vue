@@ -415,7 +415,7 @@ onUnmounted(() => { clearInterval(clockTick); clearInterval(refreshTick) })
 <style scoped>
 .wrap {
   width: 100%;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
 }
 

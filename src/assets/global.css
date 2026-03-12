@@ -23,8 +23,8 @@
   --bg-section:  rgba(0,0,0,0.04);
   --bg-hover:    rgba(0,0,0,0.08);
   --fg:          #2a2318;
-  --fg-muted:    rgba(80,60,30,0.6);
-  --fg-label:    rgba(80,60,30,0.4);
+  --fg-muted:    rgba(80,60,30,0.75);
+  --fg-label:    rgba(80,60,30,0.55);
   --gold:        #5a4010;
   --gold-muted:  rgba(100,70,20,0.75);
   --modal-bg:    #ede8de;
@@ -44,7 +44,7 @@ html, body {
 }
 
 #app {
-  max-width: 960px;
+  max-width: min(1400px, 80%);
   margin: 0 auto;
   padding: 2rem 1.5rem 4rem;
   display: flex;

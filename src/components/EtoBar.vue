@@ -12,7 +12,7 @@ const props = withDefaults(defineProps<{
   sunsetMins:  number
   size?:       string
 }>(), {
-  size: '20px',
+  size: '1.25rem',
 })
 
 // ── 十二支の視覚定義（wa-datetimeのSHI_LISTに色を追加） ──────
@@ -276,16 +276,18 @@ const currentEtoMeta = computed(() => {
   margin-top: 0.3em;
   padding: 0 0.1em;
   font-size: 0.5em;
-  color: rgba(255,255,255,0.35);
+  color: var(--fg-muted);
   font-family: 'Hiragino Sans', sans-serif;
 }
 .meta__current {
-  color: rgba(255,255,255,0.6);
+  color: var(--fg);
 }
 .meta__current strong {
-  color: rgba(255,255,255,0.9);
+  color: var(--fg);
+  font-weight: 700;
 }
 .meta__koku {
   letter-spacing: 0.04em;
+  color: var(--fg-muted);
 }
 </style>

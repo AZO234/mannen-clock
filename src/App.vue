@@ -20,16 +20,42 @@ function applyTheme(dark: boolean) {
 }
 applyTheme(isDark.value)
 watch(isDark, v => applyTheme(v))
+
+// 文字サイズ: small / medium / large
+const FONT_SIZES = { small: '16px', medium: '20px', large: '24px' }
+type FontSize = keyof typeof FONT_SIZES
+const fontSize = ref<FontSize>((localStorage.getItem('fontSize') as FontSize) ?? 'medium')
+function applyFontSize(s: FontSize) {
+  document.documentElement.style.fontSize = FONT_SIZES[s]
+  localStorage.setItem('fontSize', s)
+}
+applyFontSize(fontSize.value)
+function setFontSize(s: FontSize) {
+  fontSize.value = s
+  applyFontSize(s)
+}
 </script>
 
 <template>
+  <div class="toolbar">
+    <div class="font-switcher">
+      <button
+        v-for="s in (['small','medium','large'] as const)"
+        :key="s"
+        class="font-btn"
+        :class="{ active: fontSize === s }"
+        @click="setFontSize(s)"
+      >{{ s === 'small' ? '小' : s === 'medium' ? '中' : '大' }}</button>
+    </div>
+    <ThemeToggle v-model="isDark" />
+  </div>
+
   <header class="site-header">
     <div class="header-inner">
       <div class="header-titles">
         <h1 class="site-title">Web 万年時計</h1>
         <p class="site-sub">Inspired by 田中久重「万年自鳴鐘」(1851)</p>
       </div>
-      <ThemeToggle v-model="isDark" />
     </div>
   </header>
 
@@ -50,8 +76,42 @@ watch(isDark, v => applyTheme(v))
 </template>
 
 <style scoped>
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.3rem 0 0.2rem;
+}
+.font-switcher {
+  display: flex;
+  gap: 0.2rem;
+}
+.font-btn {
+  background: none;
+  border: 1px solid var(--fg-label);
+  color: var(--fg-muted);
+  border-radius: 4px;
+  padding: 0.15rem 0.5rem;
+  cursor: pointer;
+  font-family: 'Hiragino Sans', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  line-height: 1.6;
+}
+.font-btn:hover {
+  background: var(--bg-hover);
+  color: var(--fg);
+}
+.font-btn.active {
+  background: var(--bg-hover);
+  border-color: var(--gold-muted);
+  color: var(--gold);
+}
+
 .site-header {
-  padding: 0.5rem 0 0.2rem;
+  padding: 0.3rem 0 0.2rem;
 }
 .header-inner {
   display: flex;
@@ -78,8 +138,6 @@ watch(isDark, v => applyTheme(v))
   margin-top: 0.3rem;
   transition: color 0.3s;
 }
-
-
 
 .section {
   display: flex;
