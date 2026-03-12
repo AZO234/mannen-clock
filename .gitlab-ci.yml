@@ -8,15 +8,19 @@ stages:
 
 cache:
   key:
-    files: [package-lock.json]
+    files: [pnpm-lock.yaml]
   paths:
-    - node_modules/
+    - .pnpm-store/
+
+before_script:
+  - npm install -g pnpm
+  - pnpm config set store-dir .pnpm-store
 
 # ── 依存インストール ──────────────────────────────────────
 install:
   stage: install
   script:
-    - npm ci
+    - pnpm install --frozen-lockfile
   artifacts:
     paths:
       - node_modules/
@@ -27,20 +31,20 @@ lint:
   stage: check
   needs: [install]
   script:
-    - npm run lint
+    - pnpm run lint
 
 typecheck:
   stage: check
   needs: [install]
   script:
-    - npm run typecheck
+    - pnpm run typecheck
 
 # ── ビルド ────────────────────────────────────────────────
 build:
   stage: build
   needs: [lint, typecheck]
   script:
-    - npm run build
+    - pnpm run build
   artifacts:
     paths:
       - dist/
@@ -54,7 +58,6 @@ pages:
   stage: deploy
   needs: [build]
   script:
-    # GitLab Pages は public/ ディレクトリを使用する
     - mv dist public
   artifacts:
     paths:

@@ -21,10 +21,10 @@
 ## セットアップ
 
 ```bash
-npm install
-npm run dev       # 開発サーバー起動
-npm run build     # プロダクションビルド
-npm run preview   # ビルド確認
+pnpm install
+pnpm run dev       # 開発サーバー起動
+pnpm run build     # プロダクションビルド
+pnpm run preview   # ビルド確認
 ```
 
 ## デプロイ
@@ -34,7 +34,7 @@ npm run preview   # ビルド確認
 1. `vite.config.ts` の `base` をリポジトリ名に合わせる  
    例: `base: '/mannen-dokei/'`
 2. GitHub リポジトリの Settings → Pages → Source を **GitHub Actions** に設定
-3. `main` ブランチへ push すると自動デプロイ
+3. `main` ブランチへ push すると `deploy.yml` が自動実行（pnpm でインストール・ビルド）
 
 ### GitLab Pages
 

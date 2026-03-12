@@ -82,6 +82,26 @@ function skyColors(min: number, sr: number, ss: number) {
   return { top:lerpColor('#1a0e2e','#06060f',t), bot:lerpColor('#2a1040','#0d0d20',t) }
 }
 
+// 緯度と太陽黄経から赤緯→正午最大高度→正規化スケール [0,1] を計算
+function solarMaxAltitudeScale(latDeg: number, date: Date): number {
+  const ECLIPTIC = 23.4397
+  // 太陽黄経の簡易計算（Meeus式簡略版）
+  const d = (date.getTime() / 86400000) - 10957.5  // J2000.0からの日数
+  const L = (280.460 + 0.9856474 * d) % 360
+  const g = (357.528 + 0.9856003 * d) % 360 * Math.PI / 180
+  const lon = (L + 1.915 * Math.sin(g) + 0.020 * Math.sin(2*g)) % 360
+  const decl = Math.asin(Math.sin(ECLIPTIC * Math.PI/180) * Math.sin(lon * Math.PI/180))
+  const declDeg = decl * 180 / Math.PI
+  // 正午の最大高度角
+  const altDeg = 90 - Math.abs(latDeg - declDeg)
+  // 正規化: 夏至(lat+eps)が1.0, 冬至(lat-eps)が0.0
+  const altMax = 90 - Math.abs(latDeg - ECLIPTIC)   // 夏至の最大高度
+  const altMin = 90 - Math.abs(latDeg + ECLIPTIC)   // 冬至の最大高度
+  return Math.max(0.1, Math.min(1.0, (altDeg - altMin) / (altMax - altMin)))
+}
+
+const latRef = ref(35.6895)
+
 function sunAltitude(min: number, sr: number, ss: number) {
   if (min <= sr || min >= ss) return -0.1
   return Math.sin(Math.PI*(min-sr)/(ss-sr))
@@ -114,7 +134,8 @@ function starShadow(idx: number, op: number): string {
 // ─────────────────────────────────────────────────────────────
 // 96セル計算
 // ─────────────────────────────────────────────────────────────
-function buildCells(p: SkyParams) {
+function buildCells(p: SkyParams, latDeg = 35.0) {
+  const scale = solarMaxAltitudeScale(latDeg, new Date())
   return Array.from({length:96},(_,i)=>{
     const min   = i*15+7
     const col   = skyColors(min, p.sunriseMins, p.sunsetMins)
@@ -126,7 +147,7 @@ function buildCells(p: SkyParams) {
     return {
       '--sky-top':     col.top,
       '--sky-bot':     col.bot,
-      '--sun-y':       sa>0 ? `${(100-sa*80).toFixed(1)}%` : '110%',
+      '--sun-y':       sa>0 ? `${(100-sa*(20+scale*65)).toFixed(1)}%` : '110%',
       '--sun-op':      sa>0 ? '1' : '0',
       '--moon-y':      ma>0 ? `${(100-ma*75).toFixed(1)}%` : '110%',
       '--moon-op':     ma>0 ? Math.min(1,ma+0.3).toFixed(2) : '0',
@@ -246,7 +267,7 @@ async function fetchData(lat: number, lon: number, locName: string) {
     hourly,
     locationName: locName,
   }
-  cells.value   = buildCells(sky.value)
+  cells.value   = buildCells(sky.value, latRef.value)
   loading.value = false
   emit('ready', sky.value.sunriseMins, sky.value.sunsetMins)
 }
@@ -259,12 +280,14 @@ async function init() {
   loading.value = true
   const FB = { lat:35.6895, lon:139.6917, name:'東京（フォールバック）' }
   let lat = FB.lat, lon = FB.lon, locName = FB.name
+  latRef.value = lat
   try {
     const pos = await new Promise<GeolocationPosition>((res,rej)=>
       navigator.geolocation.getCurrentPosition(res,rej,{timeout:5000})
     )
     lat = pos.coords.latitude
     lon = pos.coords.longitude
+    latRef.value = lat
     locName = `${lat.toFixed(2)}°N ${lon.toFixed(2)}°E`
   } catch { /* Geolocation失敗 → フォールバック座標を使用 */ }
   try {
@@ -282,7 +305,7 @@ async function init() {
       })),
       locationName: locName + '（オフライン）',
     }
-    cells.value   = buildCells(sky.value)
+    cells.value   = buildCells(sky.value, latRef.value)
     loading.value = false
     emit('ready', sky.value.sunriseMins, sky.value.sunsetMins)
   }
