@@ -1,0 +1,26 @@
+{
+  "name": "Web万年時計",
+  "short_name": "Web万年時計",
+  "description": "和暦・和時刻・天象のアプリケーションです。",
+  "lang": "ja",
+  "start_url": "https://azo234.github.io/mannen-clock/",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "512x512"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/wide.png",
+      "sizes": "1920x1080",
+      "form_factor": "wide"
+    },
+    {
+      "src": "screenshots/narrow.png",
+      "sizes": "1080x1920",
+      "form_factor": "narrow"
+    }
+ ]
+}
