@@ -66,6 +66,9 @@ function setFontSize(s: FontSize) {
       <div class="header-titles">
         <h1 class="site-title">Web万年時計</h1>
         <p class="site-sub">Inspired by 田中久重「万年自鳴鐘」(1851)</p>
+        <p class="site-github">
+          <a href="https://github.com/AZO234/mannen-clock" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </p>
       </div>
     </div>
   </header>
@@ -205,6 +208,19 @@ function setFontSize(s: FontSize) {
   letter-spacing: 0.1em;
   margin-top: 0.3rem;
   transition: color 0.3s;
+}
+.site-github {
+  font-size: 0.6rem;
+  margin-top: 0.2rem;
+}
+.site-github a {
+  color: var(--gold-muted);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  transition: color 0.2s;
+}
+.site-github a:hover {
+  color: var(--gold);
 }
 
 .section {
