@@ -5,6 +5,7 @@
   --bg:          #111018;
   --bg-section:  rgba(255,255,255,0.035);
   --bg-hover:    rgba(255,255,255,0.085);
+  --bg-panel:    #1a1a2e;
   --fg:          #e8e0d0;
   --fg-muted:    rgba(200,184,144,0.55);
   --fg-label:    rgba(200,184,144,0.35);
@@ -22,6 +23,7 @@
   --bg:          #f5f0e8;
   --bg-section:  rgba(0,0,0,0.04);
   --bg-hover:    rgba(0,0,0,0.08);
+  --bg-panel:    #e8e0d0;
   --fg:          #2a2318;
   --fg-muted:    rgba(80,60,30,0.75);
   --fg-label:    rgba(80,60,30,0.55);

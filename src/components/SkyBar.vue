@@ -171,7 +171,9 @@ function calcMoonTimes(phase: number) {
   return { rise, set: (rise + 740) % 1440 }
 }
 
-const emit = defineEmits<{ ready: [sunriseMins: number, sunsetMins: number] }>()
+const emit = defineEmits<{
+  ready: [sunriseMins: number, sunsetMins: number, weatherLabel: string, tempC: number, precip: number, windSpeed: number]
+}>()
 
 
 const sky     = ref<SkyParams|null>(null)
@@ -260,7 +262,7 @@ async function fetchData(lat: number, lon: number, locName: string) {
     tempC:         Math.round(json.hourly.temperature_2m[i]),
     cloudCover:    json.hourly.cloud_cover[i]/100,
     precipitation: json.hourly.precipitation[i],
-    windSpeed:     Math.round(json.hourly.wind_speed_10m[i]),
+    windSpeed:     Math.round(json.hourly.wind_speed_10m[i] / 3.6),
   }))
 
   sky.value = {
@@ -274,7 +276,9 @@ async function fetchData(lat: number, lon: number, locName: string) {
   }
   cells.value   = buildCells(sky.value, latRef.value)
   loading.value = false
-  emit('ready', sky.value.sunriseMins, sky.value.sunsetMins)
+  const nowH = new Date().getHours()
+  const h0 = sky.value.hourly[nowH]
+  emit('ready', sky.value.sunriseMins, sky.value.sunsetMins, weatherLabel(h0.weatherCode), h0.tempC, h0.precipitation, h0.windSpeed)
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -326,7 +330,7 @@ async function init() {
     }
     cells.value   = buildCells(sky.value, latRef.value)
     loading.value = false
-    emit('ready', sky.value.sunriseMins, sky.value.sunsetMins)
+    emit('ready', sky.value.sunriseMins, sky.value.sunsetMins, '—', 0, 0, 0)
   }
 }
 
@@ -421,7 +425,7 @@ onUnmounted(() => { clearInterval(clockTick); clearInterval(refreshTick) })
               <div class="precip-bar-wrap">
                 <div class="precip-bar" :style="{width:Math.min(rightPanel.wind/60*100,100)+'%',background:'rgba(150,230,255,0.5)'}"/>
               </div>
-              <span class="detail-val">{{ rightPanel.wind }}km/h</span>
+              <span class="detail-val">{{ rightPanel.wind }}m/s</span>
             </div>
           </div>
         </template>
