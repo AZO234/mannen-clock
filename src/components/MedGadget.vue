@@ -53,6 +53,7 @@ const colorB   = computed(() => colors.value.colorB)
 
 <template>
   <div class="med-gadget">
+    <div class="med__loc">{{ sky?.locationName ?? '—' }}</div>
     <div class="med__top">
       <span class="med__date">{{ dateStr }}</span>
       <span class="med__time">{{ hhmm }}</span>
@@ -61,8 +62,8 @@ const colorB   = computed(() => colors.value.colorB)
       <div class="med__info">
         <div class="med__weather">{{ currentWeather.label }}</div>
         <div class="med__temp">{{ currentWeather.tempC }}℃</div>
-        <div class="med__precip">雨{{ currentWeather.precip.toFixed(1) }}mm</div>
-        <div class="med__wind">風{{ currentWeather.windSpeed.toFixed(0) }}m/s</div>
+        <div class="med__precip">雨 {{ currentWeather.precip.toFixed(1) }}mm</div>
+        <div class="med__wind">風 {{ currentWeather.windSpeed.toFixed(0) }}m/s</div>
       </div>
       <div class="med__frame" :style="{ background: `linear-gradient(to bottom, ${colorA}, ${colorB})` }">
         <div class="med__shi">{{ shiKanji }}</div>
@@ -84,6 +85,16 @@ const colorB   = computed(() => colors.value.colorB)
   box-shadow: 0 2px 8px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
   font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
   min-width: 12em;
+}
+.med__loc {
+  font-size: 0.65em;
+  color: var(--fg-muted);
+  font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 14em;
 }
 .med__top {
   display: flex;
