@@ -341,7 +341,7 @@ onMounted(() => {
   now.value = new Date()
   init()
   // 1分ごとに時刻更新
-  clockTick   = setInterval(() => { now.value = new Date() }, 60_000)
+  clockTick   = setInterval(() => { now.value = new Date() }, 1_000)
   // 5分ごとに天気再取得
   refreshTick = setInterval(() => { init() }, 5 * 60_000)
 })
@@ -444,9 +444,6 @@ onUnmounted(() => { clearInterval(clockTick); clearInterval(refreshTick) })
   width: 100%;
   font-size: 1.25rem;
   font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
-  border: 2px solid var(--gold-muted);
-  border-radius: 0.45em;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
 }
 
 /* ── 行 ── */
