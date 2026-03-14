@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { dateToKoku, SHI_LIST } from 'wa-datetime'
+import { useSkyData } from '@/composables/useSkyData'
 
 const ETO_COLORS = [
   { shiIdx: 3,  colorA:'#f5c842', colorB:'#e89a10' },
@@ -17,10 +18,9 @@ const ETO_COLORS = [
   { shiIdx: 2,  colorA:'#28366e', colorB:'#141c40' },
 ]
 
-const props = defineProps<{
-  sunriseMins: number
-  sunsetMins:  number
-}>()
+const { sky } = useSkyData()
+const sunriseMins = computed(() => sky.value?.sunriseMins ?? 360)
+const sunsetMins  = computed(() => sky.value?.sunsetMins  ?? 1080)
 
 const now = ref(new Date())
 let tick: ReturnType<typeof setInterval>
@@ -32,7 +32,7 @@ const hhmm = computed(() => {
   return `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`
 })
 
-const koku    = computed(() => dateToKoku(now.value, props.sunriseMins, props.sunsetMins))
+const koku    = computed(() => dateToKoku(now.value, sunriseMins.value, sunsetMins.value))
 const shiKanji = computed(() => koku.value.eto.kanji)
 const number   = computed(() => koku.value.eto.number)
 const shiIdx   = computed(() => SHI_LIST.findIndex(s => s.kanji === shiKanji.value))

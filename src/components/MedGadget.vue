@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { dateToKoku, SHI_LIST } from 'wa-datetime'
+import { useSkyData } from '@/composables/useSkyData'
 
 const ETO_COLORS = [
   { shiIdx: 3,  colorA:'#f5c842', colorB:'#e89a10' },
@@ -17,14 +18,15 @@ const ETO_COLORS = [
   { shiIdx: 2,  colorA:'#28366e', colorB:'#141c40' },
 ]
 
-const props = defineProps<{
-  sunriseMins:  number
-  sunsetMins:   number
-  weatherLabel: string
-  tempC:        number
-  precip:       number
-  windSpeed:    number
-}>()
+const { sky, weatherLabel } = useSkyData()
+const sunriseMins = computed(() => sky.value?.sunriseMins ?? 360)
+const sunsetMins  = computed(() => sky.value?.sunsetMins  ?? 1080)
+const currentHour = computed(() => new Date().getHours())
+const currentWeather = computed(() => {
+  if (!sky.value) return { label: '—', tempC: 0, precip: 0, windSpeed: 0 }
+  const h = sky.value.hourly[currentHour.value]
+  return { label: weatherLabel(h.weatherCode), tempC: h.tempC, precip: h.precipitation, windSpeed: h.windSpeed }
+})
 
 const now = ref(new Date())
 let tick: ReturnType<typeof setInterval>
@@ -40,7 +42,7 @@ const hhmm = computed(() => {
   return `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`
 })
 
-const koku     = computed(() => dateToKoku(now.value, props.sunriseMins, props.sunsetMins))
+const koku     = computed(() => dateToKoku(now.value, sunriseMins.value, sunsetMins.value))
 const shiKanji = computed(() => koku.value.eto.kanji)
 const number   = computed(() => koku.value.eto.number)
 const shiIdx   = computed(() => SHI_LIST.findIndex(s => s.kanji === shiKanji.value))
@@ -57,10 +59,10 @@ const colorB   = computed(() => colors.value.colorB)
     </div>
     <div class="med__body">
       <div class="med__info">
-        <div class="med__weather">{{ weatherLabel }}</div>
-        <div class="med__temp">{{ tempC }}℃</div>
-        <div class="med__precip">雨{{ precip.toFixed(1) }}mm</div>
-        <div class="med__wind">風{{ windSpeed.toFixed(0) }}m/s</div>
+        <div class="med__weather">{{ currentWeather.label }}</div>
+        <div class="med__temp">{{ currentWeather.tempC }}℃</div>
+        <div class="med__precip">雨{{ currentWeather.precip.toFixed(1) }}mm</div>
+        <div class="med__wind">風{{ currentWeather.windSpeed.toFixed(0) }}m/s</div>
       </div>
       <div class="med__frame" :style="{ background: `linear-gradient(to bottom, ${colorA}, ${colorB})` }">
         <div class="med__shi">{{ shiKanji }}</div>

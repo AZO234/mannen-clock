@@ -6,14 +6,17 @@
 
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { dateToKoku, SHI_LIST, kokuDurationStr } from 'wa-datetime'
+import { useSkyData } from '@/composables/useSkyData'
 
 const props = withDefaults(defineProps<{
-  sunriseMins: number
-  sunsetMins:  number
-  size?:       string
+  size?: string
 }>(), {
   size: '1.25rem',
 })
+
+const { sky } = useSkyData()
+const sunriseMins = computed(() => sky.value?.sunriseMins ?? 360)
+const sunsetMins  = computed(() => sky.value?.sunsetMins  ?? 1080)
 
 // ── 十二支の視覚定義（wa-datetimeのSHI_LISTに色を追加） ──────
 const ETO_VISUAL = [
@@ -42,7 +45,7 @@ const ETO = ETO_VISUAL.map(v => ({
 
 // ── セグメント計算 ────────────────────────────────────────
 const segments = computed(() => {
-  const sr = props.sunriseMins, ss = props.sunsetMins
+  const sr = sunriseMins.value, ss = sunsetMins.value
   const dayLen = ss - sr, nightLen = 1440 - dayLen
   const dayKoku = dayLen / 6, nightKoku = nightLen / 6
 
@@ -80,7 +83,7 @@ const nowPct  = computed(() => (nowMins.value / 1440 * 100).toFixed(3) + '%')
 
 // ── 現在の刻 (wa-datetime dateToKoku 使用) ───────────────
 const currentKoku = computed(() =>
-  dateToKoku(now.value, props.sunriseMins, props.sunsetMins)
+  dateToKoku(now.value, sunriseMins.value, sunsetMins.value)
 )
 
 const currentEtoKanji = computed(() => currentKoku.value.eto.kanji)

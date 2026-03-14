@@ -7,22 +7,6 @@ import ThemeToggle from '@/components/ThemeToggle.vue'
 import MiniGadget from '@/components/MiniGadget.vue'
 import MedGadget  from '@/components/MedGadget.vue'
 
-const sunriseMins  = ref(360)
-const sunsetMins   = ref(1080)
-const skyWeather   = ref('—')
-const skyTempC     = ref(0)
-const skyPrecip    = ref(0)
-const skyWindSpeed = ref(0)
-
-function onSkyReady(sr: number, ss: number, wLabel: string, tempC: number, precip: number, wind: number) {
-  sunriseMins.value  = sr
-  sunsetMins.value   = ss
-  skyWeather.value   = wLabel
-  skyTempC.value     = tempC
-  skyPrecip.value    = precip
-  skyWindSpeed.value = wind
-}
-
 // テーマ: localStorage で永続化
 const isDark = ref(localStorage.getItem('theme') !== 'light')
 function applyTheme(dark: boolean) {
@@ -88,29 +72,22 @@ function setFontSize(s: FontSize) {
   <div class="gadgets-bar">
     <div class="gadget-item">
       <div class="section-label">小ガジェット</div>
-      <MiniGadget :sunrise-mins="sunriseMins" :sunset-mins="sunsetMins" />
+      <MiniGadget />
     </div>
     <div class="gadget-item">
       <div class="section-label">中ガジェット</div>
-      <MedGadget
-      :sunrise-mins="sunriseMins"
-      :sunset-mins="sunsetMins"
-      :weather-label="skyWeather"
-      :temp-c="skyTempC"
-      :precip="skyPrecip"
-      :wind-speed="skyWindSpeed"
-    />
+      <MedGadget />
     </div>
   </div>
 
   <section class="section">
     <div class="section-label">天象</div>
-    <SkyBar @ready="onSkyReady" />
+    <SkyBar />
   </section>
 
   <section class="section">
     <div class="section-label">和時刻</div>
-    <EtoBar :sunrise-mins="sunriseMins" :sunset-mins="sunsetMins" />
+    <EtoBar />
   </section>
 
   <section class="section">
