@@ -32,7 +32,7 @@ const hhmm = computed(() => {
   return `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`
 })
 
-const koku    = computed(() => dateToKoku(now.value, sunriseMins.value, sunsetMins.value))
+const koku     = computed(() => dateToKoku(now.value, sunriseMins.value, sunsetMins.value))
 const shiKanji = computed(() => koku.value.eto.kanji)
 const number   = computed(() => koku.value.eto.number)
 const shiIdx   = computed(() => SHI_LIST.findIndex(s => s.kanji === shiKanji.value))
@@ -58,8 +58,8 @@ const colorB   = computed(() => colors.value.colorB)
   align-items: center;
   gap: 0.3em;
   padding: 0.5em 0.7em;
-  background: var(--bg-panel, #1a1a2e);
-  border: 2px solid var(--gold-muted, #8a7040);
+  background: var(--bg-panel);
+  border: 2px solid var(--gold-muted);
   border-radius: 0.6em;
   box-shadow: 0 2px 8px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
   font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
@@ -69,7 +69,7 @@ const colorB   = computed(() => colors.value.colorB)
   font-size: 1.1em;
   font-weight: 700;
   letter-spacing: 0.03em;
-  color: var(--gold, #c8a84b);
+  color: var(--gold);
   font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
 }
 .mini__frame {

@@ -78,8 +78,8 @@ const colorB   = computed(() => colors.value.colorB)
   flex-direction: column;
   gap: 0.35em;
   padding: 0.55em 0.8em;
-  background: var(--bg-panel, #1a1a2e);
-  border: 2px solid var(--gold-muted, #8a7040);
+  background: var(--bg-panel);
+  border: 2px solid var(--gold-muted);
   border-radius: 0.6em;
   box-shadow: 0 2px 8px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
   font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
@@ -89,19 +89,19 @@ const colorB   = computed(() => colors.value.colorB)
   display: flex;
   align-items: baseline;
   gap: 0.6em;
-  border-bottom: 1px solid var(--gold-muted, #8a7040);
+  border-bottom: 1px solid var(--gold-muted);
   padding-bottom: 0.25em;
 }
 .med__date {
   font-size: 0.75em;
-  color: var(--fg-muted, #aaa);
+  color: var(--fg-muted);
   font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
   letter-spacing: 0.03em;
 }
 .med__time {
   font-size: 1.0em;
   font-weight: 700;
-  color: var(--gold, #c8a84b);
+  color: var(--gold);
   font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
   letter-spacing: 0.03em;
 }
@@ -117,22 +117,10 @@ const colorB   = computed(() => colors.value.colorB)
   gap: 0.05em;
   flex: 1;
 }
-.med__weather {
-  font-size: 0.8em;
-  color: var(--fg, #ddd);
-  letter-spacing: 0.05em;
-}
-.med__temp {
-  font-size: 1.1em;
-  color: var(--gold, #c8a84b);
-  letter-spacing: 0.05em;
-}
+.med__weather { font-size: 0.8em;  color: var(--fg);      letter-spacing: 0.05em; }
+.med__temp    { font-size: 1.1em;  color: var(--gold);    letter-spacing: 0.05em; }
 .med__precip,
-.med__wind {
-  font-size: 0.65em;
-  color: var(--fg-muted, #aaa);
-  letter-spacing: 0.03em;
-}
+.med__wind    { font-size: 0.65em; color: var(--fg-muted); letter-spacing: 0.03em; }
 .med__frame {
   display: flex;
   flex-direction: column;

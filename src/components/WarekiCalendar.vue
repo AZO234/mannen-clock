@@ -716,22 +716,4 @@ const modalNextSekki = computed(() => {
 .modal-fade-leave-active { transition: opacity 0.15s ease, transform 0.15s ease; }
 .modal-fade-enter-from   { opacity:0; transform:scale(0.96) translateY(8px); }
 .modal-fade-leave-to     { opacity:0; transform:scale(0.96) translateY(8px); }
-
-/* ═══════════════════════════════════════════════════════════
-   スマホ対応 (768px以下)
-═══════════════════════════════════════════════════════════ */
-@media (max-width: 768px) {
-  /* 日付・旧暦日付のみ残す。それ以外非表示 */
-  .rokuyou,
-  .sekki,
-  .sekku,
-  .zassetsu,
-  .holiday-name {
-    display: none !important;
-  }
-  /* 日付を少し大きく */
-  .day-num {
-    font-size: 1.1rem;
-  }
-}
 </style>

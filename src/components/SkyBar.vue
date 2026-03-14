@@ -1,21 +1,54 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
-import { useSkyData, weatherLabel, type HourData, type SkyData } from '@/composables/useSkyData'
 
 // ─────────────────────────────────────────────────────────────
 // 型
 // ─────────────────────────────────────────────────────────────
+interface HourData {
+  weatherCode:   number
+  tempC:         number
+  cloudCover:    number   // 0.0〜1.0
+  precipitation: number   // mm
+  windSpeed:     number   // km/h
+}
+
+interface SkyParams {
+  sunriseMins:  number
+  sunsetMins:   number
+  moonriseMins: number
+  moonsetMins:  number
+  moonPhase:    number
+  hourly:       HourData[]   // 24要素
+  locationName: string
+}
+
 // ホバー時に右パネルに表示する情報
 interface HoverInfo {
   hhmm:   string
   label:  string
   tempC:  number
   precip: number   // mm
-  wind:   number   // m/s
+  wind:   number   // km/h
   cloud:  number   // %
 }
 
 // ─────────────────────────────────────────────────────────────
+// 天気コード
+// ─────────────────────────────────────────────────────────────
+function weatherLabel(code: number): string {
+  if (code === 0)  return '快晴'
+  if (code <= 2)   return '晴れ'
+  if (code === 3)  return '曇り'
+  if (code <= 49)  return '霧'
+  if (code <= 57)  return '霧雨'
+  if (code <= 67)  return '雨'
+  if (code <= 77)  return '雪'
+  if (code <= 82)  return '強雨'
+  if (code <= 86)  return '大雪'
+  if (code <= 99)  return '雷雨'
+  return '不明'
+}
+
 // 降水量バーの色
 function precipColor(mm: number): string {
   if (mm <= 0)   return 'rgba(255,255,255,0.15)'
@@ -67,6 +100,8 @@ function solarMaxAltitudeScale(latDeg: number, date: Date): number {
   return Math.max(0.1, Math.min(1.0, (altDeg - altMin) / (altMax - altMin)))
 }
 
+const latRef = ref(35.6895)
+
 function sunAltitude(min: number, sr: number, ss: number) {
   if (min <= sr || min >= ss) return -0.1
   return Math.sin(Math.PI*(min-sr)/(ss-sr))
@@ -99,7 +134,7 @@ function starShadow(idx: number, op: number): string {
 // ─────────────────────────────────────────────────────────────
 // 96セル計算
 // ─────────────────────────────────────────────────────────────
-function buildCells(p: SkyData, latDeg = 35.0) {
+function buildCells(p: SkyParams, latDeg = 35.0) {
   const scale = solarMaxAltitudeScale(latDeg, new Date())
   return Array.from({length:96},(_,i)=>{
     const min   = i*15+7
@@ -127,17 +162,22 @@ function buildCells(p: SkyData, latDeg = 35.0) {
 }
 
 // ─────────────────────────────────────────────────────────────
-// 月相名 — wa-datetime を使用
+// 月齢 — wa-datetime を使用
 // ─────────────────────────────────────────────────────────────
-import { moonPhaseName } from 'wa-datetime'
+import { moonPhase as calcMoonPhase, moonPhaseName } from 'wa-datetime'
 
-// ─────────────────────────────────────────────────────────────
-// sky データは composable から取得
-// ─────────────────────────────────────────────────────────────
-const { sky, loading } = useSkyData()
+function calcMoonTimes(phase: number) {
+  const rise = Math.round((phase * 1440 + 360) % 1440)
+  return { rise, set: (rise + 740) % 1440 }
+}
 
-const cells = computed(() => sky.value ? buildCells(sky.value, sky.value.lat) : [])
-const now   = ref(new Date())
+const emit = defineEmits<{ ready: [sunriseMins: number, sunsetMins: number] }>()
+
+
+const sky     = ref<SkyParams|null>(null)
+const cells   = ref<ReturnType<typeof buildCells>>([])
+const loading = ref(true)
+const now     = ref(new Date())
 
 
 
@@ -201,17 +241,107 @@ const rightPanel = computed(()=>{
 // ─────────────────────────────────────────────────────────────
 // API
 // ─────────────────────────────────────────────────────────────
+async function fetchData(lat: number, lon: number, locName: string) {
+  // ローカル日付を YYYY-MM-DD で取得（ISOはUTC日付になるので使わない）
+  const d = new Date()
+  const today = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`
+  const res   = await fetch(
+    `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}`+
+    `&hourly=weather_code,temperature_2m,cloud_cover,precipitation,wind_speed_10m`+
+    `&daily=sunrise,sunset&timezone=Asia%2FTokyo&start_date=${today}&end_date=${today}`
+  )
+  const json  = await res.json()
+  const toMins = (s:string)=>{ const [h,m]=s.slice(11,16).split(':').map(Number); return h*60+m }
+  const phase  = calcMoonPhase(now.value)
+  const moon   = calcMoonTimes(phase)
+
+  const hourly: HourData[] = Array.from({length:24},(_,i)=>({
+    weatherCode:   json.hourly.weather_code[i],
+    tempC:         Math.round(json.hourly.temperature_2m[i]),
+    cloudCover:    json.hourly.cloud_cover[i]/100,
+    precipitation: json.hourly.precipitation[i],
+    windSpeed:     Math.round(json.hourly.wind_speed_10m[i]),
+  }))
+
+  sky.value = {
+    sunriseMins:  toMins(json.daily.sunrise[0]),
+    sunsetMins:   toMins(json.daily.sunset[0]),
+    moonriseMins: moon.rise,
+    moonsetMins:  moon.set,
+    moonPhase:    phase,
+    hourly,
+    locationName: locName,
+  }
+  cells.value   = buildCells(sky.value, latRef.value)
+  loading.value = false
+  emit('ready', sky.value.sunriseMins, sky.value.sunsetMins)
+}
+
 // ─────────────────────────────────────────────────────────────
 // 時刻: ブラウザのローカル時計をそのまま使用
 // ─────────────────────────────────────────────────────────────
 
-let clockTick: ReturnType<typeof setInterval>
+async function init() {
+  loading.value = true
+  const FB = { lat:35.6895, lon:139.6917, name:'東京（フォールバック）' }
+  let lat = FB.lat, lon = FB.lon, locName = FB.name
+  latRef.value = lat
+  try {
+    const pos = await new Promise<GeolocationPosition>((res,rej)=>
+      navigator.geolocation.getCurrentPosition(res,rej,{timeout:5000})
+    )
+    lat = pos.coords.latitude
+    lon = pos.coords.longitude
+    latRef.value = lat
+    // 逆ジオコーディング（Nominatim）
+    try {
+      const geo = await fetch(
+        `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json&accept-language=ja`,
+        { headers: { 'User-Agent': 'mannen-dokei/4.0' } }
+      )
+      const gj = await geo.json()
+      const a = gj.address ?? {}
+      const city = a.city || a.town || a.village || a.municipality || ''
+      const district = a.city_district || a.suburb || ''
+      const pref = a.province || a.state || ''
+      locName = [pref, city, district].filter(Boolean).join('') || `${lat.toFixed(2)}°N ${lon.toFixed(2)}°E`
+    } catch {
+      locName = `${lat.toFixed(2)}°N ${lon.toFixed(2)}°E`
+    }
+  } catch { /* Geolocation失敗 → フォールバック座標を使用 */ }
+  try {
+    await fetchData(lat, lon, locName)
+  } catch {
+    // API失敗時もデフォルト値で表示を継続
+    const phase = calcMoonPhase(now.value)
+    const moon  = calcMoonTimes(phase)
+    sky.value = {
+      sunriseMins:  360, sunsetMins: 1080,
+      moonriseMins: moon.rise, moonsetMins: moon.set,
+      moonPhase:    phase,
+      hourly: Array.from({length:24}, () => ({
+        weatherCode:0, tempC:0, cloudCover:0, precipitation:0, windSpeed:0,
+      })),
+      locationName: locName + '（オフライン）',
+    }
+    cells.value   = buildCells(sky.value, latRef.value)
+    loading.value = false
+    emit('ready', sky.value.sunriseMins, sky.value.sunsetMins)
+  }
+}
+
+let clockTick:   ReturnType<typeof setInterval>
+let refreshTick: ReturnType<typeof setInterval>
 
 onMounted(() => {
   now.value = new Date()
-  clockTick = setInterval(() => { now.value = new Date() }, 1_000)
+  init()
+  // 1分ごとに時刻更新
+  clockTick   = setInterval(() => { now.value = new Date() }, 60_000)
+  // 5分ごとに天気再取得
+  refreshTick = setInterval(() => { init() }, 5 * 60_000)
 })
-onUnmounted(() => { clearInterval(clockTick) })
+onUnmounted(() => { clearInterval(clockTick); clearInterval(refreshTick) })
 </script>
 
 <!---------------------------------------------------------------------------->
@@ -291,7 +421,7 @@ onUnmounted(() => { clearInterval(clockTick) })
               <div class="precip-bar-wrap">
                 <div class="precip-bar" :style="{width:Math.min(rightPanel.wind/60*100,100)+'%',background:'rgba(150,230,255,0.5)'}"/>
               </div>
-              <span class="detail-val">{{ rightPanel.wind }}m/s</span>
+              <span class="detail-val">{{ rightPanel.wind }}km/h</span>
             </div>
           </div>
         </template>
@@ -345,7 +475,7 @@ onUnmounted(() => { clearInterval(clockTick) })
   width: 9em;
   transition: background 0.3s ease, color 0.8s ease;
 }
-
+.side--right.hovering { background: rgba(80,120,180,0.5) !important; }
 
 /* ── 右パネル内要素 ── */
 .side__hhmm {
@@ -545,42 +675,4 @@ onUnmounted(() => { clearInterval(clockTick) })
 }
 
 @keyframes pulse { 0%,100%{opacity:0.3} 50%{opacity:0.85} }
-
-/* ═══════════════════════════════════════════════════════════
-   スマホ対応 (768px以下)
-═══════════════════════════════════════════════════════════ */
-@media (max-width: 768px) {
-  .row {
-    flex-direction: column;
-    align-items: stretch;
-    height: auto !important;
-  }
-  .side {
-    width: 100%;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 0.3em 0.6em;
-    border-radius: 0;
-  }
-  .side--left {
-    border-radius: 0.35em 0.35em 0 0;
-  }
-  .side--right {
-    border-radius: 0 0 0.35em 0.35em;
-    width: 100% !important;
-    position: static !important;
-  }
-  .side__sunrow {
-    flex-direction: row;
-    gap: 0.8em;
-    margin-top: 0;
-  }
-  .bar {
-    border-radius: 0 !important;
-    flex: none !important;
-    height: 7em !important;
-    width: 100% !important;
-    min-height: 7em !important;
-  }
-}
 </style>
