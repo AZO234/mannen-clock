@@ -343,7 +343,7 @@ onMounted(() => {
   // 1分ごとに時刻更新
   clockTick   = setInterval(() => { now.value = new Date() }, 1_000)
   // 5分ごとに天気再取得
-  refreshTick = setInterval(() => { init() }, 5 * 60_000)
+  refreshTick = setInterval(() => { init() }, 10 * 60_000)
 })
 onUnmounted(() => { clearInterval(clockTick); clearInterval(refreshTick) })
 </script>
