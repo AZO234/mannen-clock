@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, watch, onMounted } from 'vue'
 import {
   toLunar, zassetsu, sekki, sekku,
   lunarMonthName, lunarDayName, rokuyou,
@@ -9,32 +9,34 @@ import {
 } from 'wa-datetime'
 
 // ══════════════════════════════════════════════════════════════
-//  祝日
+//  祝日 — holidays-jp.github.io API
 // ══════════════════════════════════════════════════════════════
+
+// { year: { "YYYY-MM-DD": "祝日名" } } のキャッシュ
+const holidayCache = ref<Record<number, Record<string, string>>>({})
+
+async function fetchHolidays(year: number) {
+  if (holidayCache.value[year]) return   // キャッシュ済み
+  try {
+    const res  = await fetch(`https://holidays-jp.github.io/api/v1/${year}/date.json`)
+    const json = await res.json() as Record<string, string>
+    holidayCache.value = { ...holidayCache.value, [year]: json }
+  } catch {
+    holidayCache.value = { ...holidayCache.value, [year]: {} }
+  }
+}
+
 function getHolidays(year: number, month: number): Record<number, string> {
-  const h: Record<number, string> = {}
-  const add = (m: number, d: number, name: string) => { if (m === month) h[d] = name }
-  add(1,1,'元日'); add(2,11,'建国記念の日'); add(2,23,'天皇誕生日')
-  add(4,29,'昭和の日'); add(5,3,'憲法記念日'); add(5,4,'みどりの日')
-  add(5,5,'こどもの日'); add(8,11,'山の日'); add(11,3,'文化の日'); add(11,23,'勤労感謝の日')
-  const nthMon = (n: number) => {
-    let c = 0
-    for (let d = 1; d <= 31; d++)
-      if (new Date(year, month-1, d).getDay() === 1 && ++c === n) return d
-    return null
+  const cache = holidayCache.value[year] ?? {}
+  const result: Record<number, string> = {}
+  const prefix = `${year}-${String(month).padStart(2,'0')}-`
+  for (const [date, name] of Object.entries(cache)) {
+    if (date.startsWith(prefix)) {
+      const day = parseInt(date.slice(8), 10)
+      result[day] = name
+    }
   }
-  if (month===1)  { const d=nthMon(2); if(d) h[d]='成人の日' }
-  if (month===7)  { const d=nthMon(3); if(d) h[d]='海の日' }
-  if (month===9)  {
-    const d=nthMon(3); if(d) h[d]='敬老の日'
-    add(9, Math.floor(23.2488+0.242194*(year-1980)-Math.floor((year-1980)/4)), '秋分の日')
-  }
-  if (month===10) { const d=nthMon(2); if(d) h[d]='スポーツの日' }
-  if (month===3)  add(3, Math.floor(20.8431+0.242194*(year-1980)-Math.floor((year-1980)/4)), '春分の日')
-  Object.entries(h).forEach(([d]) => {
-    if (new Date(year, month-1, +d).getDay()===0 && !h[+d+1]) h[+d+1]='振替休日'
-  })
-  return h
+  return result
 }
 
 const DOW_NAMES = ['日','月','火','水','木','金','土']
@@ -53,6 +55,21 @@ function moonPhaseChar(phase: number): string {
 const today        = new Date()
 const currentYear  = ref(today.getFullYear())
 const currentMonth = ref(today.getMonth() + 1)
+
+// 表示年が変わったら祝日を取得（前年・当年・翌年をまとめて）
+watch(currentYear, (y) => {
+  fetchHolidays(y - 1)
+  fetchHolidays(y)
+  fetchHolidays(y + 1)
+}, { immediate: true })
+
+onMounted(() => {
+  // 念のため当年前後を取得
+  const y = currentYear.value
+  fetchHolidays(y - 1)
+  fetchHolidays(y)
+  fetchHolidays(y + 1)
+})
 
 function prevMonth() {
   if (--currentMonth.value < 1)  { currentMonth.value = 12; currentYear.value-- }

@@ -20,6 +20,7 @@
 |---|---|
 | [Open-Meteo](https://open-meteo.com/) | 天気予報・気温・降水量・日出日没時刻（無料・認証不要） |
 | [Nominatim](https://nominatim.openstreetmap.org/) | 逆ジオコーディング — 緯度経度から地名取得（OpenStreetMap、無料・認証不要） |
+| [holidays-jp](https://holidays-jp.github.io/) | 日本の祝日一覧 — 振替休日・国民の休日含む（Googleカレンダーデータ、無料・認証不要） |
 
 旧暦・二十四節気・月齢・雑節はすべて **外部 API 不使用・天文略算式のみ**で計算。
 
