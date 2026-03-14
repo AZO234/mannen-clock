@@ -80,6 +80,54 @@ pnpm run preview   # ビルド確認
 1. `main` ブランチへ push すると `.gitlab-ci.yml` が自動実行
 2. `public/` が GitLab Pages として公開される
 
+## コンポーネントの移植
+
+各 Vue ファイルは **相互依存なし**で設計されており、必要なガジェットだけを他プロジェクトに移植できます。
+
+### 移植に必要なファイル
+
+| ファイル | 役割 | 必須 |
+|---|---|---|
+| `src/composables/useSkyData.ts` | 位置情報・天気・日出日没の取得（シングルトン） | 全コンポーネント共通 |
+| `src/components/SkyBar.vue` | 天象バー | 個別 |
+| `src/components/EtoBar.vue` | 和時刻バー | 個別 |
+| `src/components/MiniGadget.vue` | 小ガジェット | 個別 |
+| `src/components/MedGadget.vue` | 中ガジェット | 個別 |
+| `src/components/WarekiCalendar.vue` | 和暦カレンダー | 個別 |
+| `vendor/wa-datetime-*.tgz` | 暦・和時刻計算ライブラリ | 全コンポーネント共通 |
+
+### useSkyData の動作
+
+`useSkyData.ts` はシングルトンパターンで実装されており、複数のコンポーネントが同時に使用しても API へのアクセスは共有されます。
+
+```
+初回マウント時
+  → Geolocation 取得
+  → Nominatim 逆ジオコーディング（地名取得）
+  → Open-Meteo API（天気・日出日没）
+  → sky ref に結果を格納
+
+以降 10 分ごと
+  → Open-Meteo API のみ再取得
+  → sky ref 更新 → 参照中の全コンポーネントが自動再描画
+```
+
+複数のコンポーネントを同一ページに配置しても、Open-Meteo へのアクセスは **10 分に 1 回**だけです。
+
+### 最小移植例（小ガジェットのみ）
+
+```vue
+<script setup lang="ts">
+import MiniGadget from './components/MiniGadget.vue'
+</script>
+
+<template>
+  <MiniGadget />
+</template>
+```
+
+`useSkyData.ts` と `wa-datetime` を依存関係に加えるだけで動作します。
+
 ## ライセンス
 
 GNU General Public License v3.0
