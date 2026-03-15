@@ -62,7 +62,7 @@ const colorB   = computed(() => colors.value.colorB)
   border: 2px solid var(--gold-muted);
   border-radius: 0.6em;
   box-shadow: 0 2px 8px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
-  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', '游明朝', 'Noto Serif JP', serif;
   min-width: 4.5em;
 }
 .mini__time {
@@ -70,7 +70,7 @@ const colorB   = computed(() => colors.value.colorB)
   font-weight: 700;
   letter-spacing: 0.03em;
   color: var(--gold);
-  font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+  font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif;
 }
 .mini__frame {
   display: flex;
@@ -86,7 +86,7 @@ const colorB   = computed(() => colors.value.colorB)
 }
 .mini__shi {
   font-size: 1.3em;
-  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', '游明朝', serif;
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', '游明朝', 'Noto Serif JP', serif;
   font-weight: 900;
   color: rgba(255,255,255,0.95);
   text-shadow: 0 1px 4px rgba(0,0,0,0.6), 0 0 0.3em rgba(255,255,255,0.2);
@@ -95,7 +95,7 @@ const colorB   = computed(() => colors.value.colorB)
 }
 .mini__num {
   font-size: 0.65em;
-  font-family: 'Hiragino Sans', sans-serif;
+  font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif;
   color: rgba(255,255,255,0.75);
   letter-spacing: 0.04em;
   line-height: 1;

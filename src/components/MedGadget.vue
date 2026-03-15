@@ -83,13 +83,13 @@ const colorB   = computed(() => colors.value.colorB)
   border: 2px solid var(--gold-muted);
   border-radius: 0.6em;
   box-shadow: 0 2px 8px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
-  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', '游明朝', 'Noto Serif JP', serif;
   min-width: 12em;
 }
 .med__loc {
   font-size: 0.65em;
   color: var(--fg-muted);
-  font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+  font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif;
   letter-spacing: 0.05em;
   white-space: nowrap;
   overflow: hidden;
@@ -106,14 +106,14 @@ const colorB   = computed(() => colors.value.colorB)
 .med__date {
   font-size: 0.75em;
   color: var(--fg-muted);
-  font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+  font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif;
   letter-spacing: 0.03em;
 }
 .med__time {
   font-size: 1.0em;
   font-weight: 700;
   color: var(--gold);
-  font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+  font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif;
   letter-spacing: 0.03em;
 }
 .med__body {
@@ -146,7 +146,7 @@ const colorB   = computed(() => colors.value.colorB)
 }
 .med__shi {
   font-size: 1.4em;
-  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', '游明朝', serif;
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', '游明朝', 'Noto Serif JP', serif;
   font-weight: 900;
   color: rgba(255,255,255,0.95);
   text-shadow: 0 1px 4px rgba(0,0,0,0.6), 0 0 0.3em rgba(255,255,255,0.2);
@@ -155,7 +155,7 @@ const colorB   = computed(() => colors.value.colorB)
 }
 .med__num {
   font-size: 0.65em;
-  font-family: 'Hiragino Sans', sans-serif;
+  font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif;
   color: rgba(255,255,255,0.75);
   letter-spacing: 0.04em;
   line-height: 1;

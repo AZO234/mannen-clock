@@ -541,7 +541,7 @@ const modalNextSekki = computed(() => {
 <!---------------------------------------------------------------------------->
 <style scoped>
 /* ── カレンダー本体 ─────────────────────────────────────── */
-.cal-wrap { font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif; position:relative; overflow:hidden; }
+.cal-wrap { font-family: 'Hiragino Mincho ProN', 'Yu Mincho', '游明朝', 'Noto Serif JP', serif; position:relative; overflow:hidden; }
 
 .nav { display:flex; align-items:center; justify-content:center; gap:1.2rem; margin-bottom:1rem; text-align:center; position:relative; min-height:4rem; padding:0.5rem 1rem; border-radius:8px; overflow:hidden; }
 .cal-silhouette {

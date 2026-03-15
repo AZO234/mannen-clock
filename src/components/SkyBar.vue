@@ -300,7 +300,7 @@ onUnmounted(() => { clearInterval(clockTick) })
 .wrap {
   width: 100%;
   font-size: 1.25rem;
-  font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+  font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif;
 }
 
 /* ── 行 ── */

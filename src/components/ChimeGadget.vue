@@ -228,7 +228,7 @@ onUnmounted(() => {
   border: 2px solid var(--gold-muted);
   border-radius: 0.6em;
   box-shadow: 0 2px 8px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
-  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', '游明朝', 'Noto Serif JP', serif;
   min-width: 12em;
   cursor: pointer;
 }
@@ -236,7 +236,7 @@ onUnmounted(() => {
 .med__loc {
   font-size: 0.65em;
   color: var(--fg-muted);
-  font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+  font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif;
   letter-spacing: 0.05em;
   white-space: nowrap;
   overflow: hidden;
@@ -251,8 +251,8 @@ onUnmounted(() => {
   border-bottom: 1px solid var(--gold-muted);
   padding-bottom: 0.25em;
 }
-.med__date { font-size: 0.75em; color: var(--fg-muted); font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif; letter-spacing: 0.03em; }
-.med__time { font-size: 1.0em; font-weight: 700; color: var(--gold); font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif; letter-spacing: 0.03em; }
+.med__date { font-size: 0.75em; color: var(--fg-muted); font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif; letter-spacing: 0.03em; }
+.med__time { font-size: 1.0em; font-weight: 700; color: var(--gold); font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif; letter-spacing: 0.03em; }
 .med__body { display: flex; align-items: center; justify-content: space-between; gap: 0.8em; }
 .med__info { display: flex; flex-direction: column; gap: 0.05em; flex: 1; }
 .med__weather { font-size: 0.8em;  color: var(--fg);       letter-spacing: 0.05em; }
@@ -265,12 +265,12 @@ onUnmounted(() => {
   border: 1px solid rgba(255,255,255,0.15); gap: 0.1em; flex-shrink: 0;
 }
 .med__shi {
-  font-size: 1.4em; font-family: 'Hiragino Mincho ProN', 'Yu Mincho', '游明朝', serif;
+  font-size: 1.4em; font-family: 'Hiragino Mincho ProN', 'Yu Mincho', '游明朝', 'Noto Serif JP', serif;
   font-weight: 900; color: rgba(255,255,255,0.95);
   text-shadow: 0 1px 4px rgba(0,0,0,0.6), 0 0 0.3em rgba(255,255,255,0.2);
   letter-spacing: -0.02em; line-height: 1;
 }
-.med__num { font-size: 0.65em; font-family: 'Hiragino Sans', sans-serif; color: rgba(255,255,255,0.75); letter-spacing: 0.04em; line-height: 1; }
+.med__num { font-size: 0.65em; font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif; color: rgba(255,255,255,0.75); letter-spacing: 0.04em; line-height: 1; }
 
 /* サウンド操作 */
 .chime__controls {

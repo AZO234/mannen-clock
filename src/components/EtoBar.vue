@@ -157,7 +157,7 @@ const currentEtoMeta = computed(() => {
 <style scoped>
 .etobar-wrap {
   width: 100%;
-  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', '游明朝', serif;
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', '游明朝', 'Noto Serif JP', serif;
 }
 
 /* ── バー ── */
@@ -215,7 +215,7 @@ const currentEtoMeta = computed(() => {
 }
 .koku__number {
   font-size: 0.65em;
-  font-family: 'Hiragino Sans', sans-serif;
+  font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif;
   color: rgba(255,255,255,0.75);
   letter-spacing: 0.04em;
   white-space: nowrap;
@@ -234,7 +234,7 @@ const currentEtoMeta = computed(() => {
   color: rgba(255,255,255,0.45);
   letter-spacing: 0.03em;
   white-space: nowrap;
-  font-family: 'Hiragino Sans', sans-serif;
+  font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif;
 }
 
 /* 現在刻のグロウ */
@@ -280,7 +280,7 @@ const currentEtoMeta = computed(() => {
   padding: 0 0.1em;
   font-size: 0.5em;
   color: var(--fg-muted);
-  font-family: 'Hiragino Sans', sans-serif;
+  font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif;
 }
 .meta__current {
   color: var(--fg);
