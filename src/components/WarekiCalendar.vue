@@ -630,16 +630,11 @@ const modalNextSekki = computed(() => {
   border:1px solid rgba(200,184,100,0.25);
   border-radius:12px;
   padding:1.8rem 2rem 2rem;
-  box-shadow:0 24px 80px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,200,0.08);
+  box-shadow:0 24px 80px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,200,0.08), inset 0 0 0 8px transparent, inset 0 0 0 9px var(--modal-inner-border);
   font-family:'Hiragino Mincho ProN','Yu Mincho',serif;
-  /* 和風飾り：四隅 */
 }
 .modal-box::before {
-  content:'';
-  position:absolute; inset:8px;
-  border:1px solid var(--modal-inner-border);
-  border-radius:8px;
-  pointer-events:none;
+  display: none;
 }
 
 .modal-close {
