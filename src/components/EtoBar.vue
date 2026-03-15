@@ -164,7 +164,7 @@ const currentEtoMeta = computed(() => {
 .bar {
   position: relative;
   width: 100%;
-  height: 3em;
+  height: 4em;
   border-radius: 0.35em;
   overflow: hidden;
   box-shadow: 0 4px 24px rgba(0,0,0,0.45);
@@ -214,14 +214,14 @@ const currentEtoMeta = computed(() => {
   max-height: 100%;
 }
 .koku__number {
-  font-size: 0.32em;
+  font-size: 0.65em;
   font-family: 'Hiragino Sans', sans-serif;
   color: rgba(255,255,255,0.75);
   letter-spacing: 0.04em;
   white-space: nowrap;
 }
 .koku__kanji {
-  font-size: 1.15em;
+  font-size: 1.4em;
   font-weight: 900;
   color: rgba(255,255,255,0.95);
   text-shadow:
@@ -230,7 +230,7 @@ const currentEtoMeta = computed(() => {
   letter-spacing: -0.02em;
 }
 .koku__sub {
-  font-size: 0.26em;
+  font-size: 0.55em;
   color: rgba(255,255,255,0.45);
   letter-spacing: 0.03em;
   white-space: nowrap;

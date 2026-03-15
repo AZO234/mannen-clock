@@ -154,7 +154,7 @@ const colorB   = computed(() => colors.value.colorB)
   line-height: 1;
 }
 .med__num {
-  font-size: 0.6em;
+  font-size: 0.65em;
   font-family: 'Hiragino Sans', sans-serif;
   color: rgba(255,255,255,0.75);
   letter-spacing: 0.04em;

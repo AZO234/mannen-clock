@@ -270,7 +270,7 @@ onUnmounted(() => {
   text-shadow: 0 1px 4px rgba(0,0,0,0.6), 0 0 0.3em rgba(255,255,255,0.2);
   letter-spacing: -0.02em; line-height: 1;
 }
-.med__num { font-size: 0.6em; font-family: 'Hiragino Sans', sans-serif; color: rgba(255,255,255,0.75); letter-spacing: 0.04em; line-height: 1; }
+.med__num { font-size: 0.65em; font-family: 'Hiragino Sans', sans-serif; color: rgba(255,255,255,0.75); letter-spacing: 0.04em; line-height: 1; }
 
 /* サウンド操作 */
 .chime__controls {
