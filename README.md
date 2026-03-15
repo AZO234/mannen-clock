@@ -1,6 +1,6 @@
 # Web万年時計
 
-田中久重「万年自鳴鐘（万年時計）」(1851) に着想を得た Webガジェットアプリです。
+田中久重「[万年自鳴鐘](https://ja.wikipedia.org/wiki/%E4%B8%87%E5%B9%B4%E8%87%AA%E9%B3%B4%E9%90%98)（万年時計）」(1851) に着想を得た Webガジェットアプリです。
 
 ## 構成
 
@@ -162,6 +162,11 @@ import MiniGadget from './components/MiniGadget.vue'
 ```
 
 `useSkyData.ts` と `wa-datetime` を依存関係に加えるだけで動作します。
+
+## 参考
+
+- [ajnet.ne.jp 六曜・月齢・旧暦カレンダー](https://www.ajnet.ne.jp/diary_f/)
+- [国立天文台 暦要項](https://eco.mtk.nao.ac.jp/koyomi/yoko/)
 
 ## ライセンス
 
