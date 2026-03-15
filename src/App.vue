@@ -80,23 +80,23 @@ function setFontSize(s: FontSize) {
       <MedGadget />
     </div>
     <div class="gadget-item">
-      <div class="section-label">音声通知ガジェット</div>
+      <div class="section-label">音声通知ガジェット - 日照時間で変化</div>
       <ChimeGadget />
     </div>
   </div>
 
   <section class="section">
-    <div class="section-label">天象</div>
+    <div class="section-label">天象バー - バー内をホバー・タップで天気予報</div>
     <SkyBar />
   </section>
 
   <section class="section">
-    <div class="section-label">和時刻</div>
+    <div class="section-label">和時刻バー</div>
     <EtoBar />
   </section>
 
   <section class="section">
-    <div class="section-label">和暦</div>
+    <div class="section-label">和暦カレンダー - 日付をクリック・タップで詳細</div>
     <WarekiCalendar />
   </section>
 </template>
