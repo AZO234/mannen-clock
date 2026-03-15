@@ -52,7 +52,7 @@ function setFontSize(s: FontSize) {
         <h1 class="site-title">Web万年時計</h1>
         <p class="site-sub">Inspired by <a href="https://ja.wikipedia.org/wiki/%E4%B8%87%E5%B9%B4%E8%87%AA%E9%B3%B4%E9%90%98" target="_blank">田中久重「万年自鳴鐘」(1851)</a></p>
         <p class="site-github">
-          <a href="https://github.com/AZO234/mannen-clock" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://github.com/AZO234/mannen-clock" target="_blank" rel="noopener noreferrer">GitHub</a> (TypeScript + Vue.js)
         </p>
       </div>
     </div>
