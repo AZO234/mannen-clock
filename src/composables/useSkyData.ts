@@ -63,12 +63,14 @@ let refreshTick:  ReturnType<typeof setInterval>
 // ─── API取得 ──────────────────────────────────────────────────
 
 async function fetchData(lat: number, lon: number, locName: string) {
-  const d     = new Date()
-  const today = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`
+  // 現地タイムゾーンの日付を取得するためoffsetを使用
+  const tzOffset = -new Date().getTimezoneOffset()
+  const localNow = new Date(Date.now() + tzOffset * 60000)
+  const today = localNow.toISOString().slice(0, 10)
   const res   = await fetch(
     `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}` +
     `&hourly=weather_code,temperature_2m,cloud_cover,precipitation,wind_speed_10m` +
-    `&daily=sunrise,sunset&timezone=Asia%2FTokyo&start_date=${today}&end_date=${today}`
+    `&daily=sunrise,sunset&timezone=auto&start_date=${today}&end_date=${today}`
   )
   const json  = await res.json()
   const toMins = (s: string) => { const [h, m] = s.slice(11, 16).split(':').map(Number); return h * 60 + m }
@@ -103,7 +105,7 @@ async function init() {
 
   try {
     const pos = await new Promise<GeolocationPosition>((res, rej) =>
-      navigator.geolocation.getCurrentPosition(res, rej, { timeout: 5000 })
+      navigator.geolocation.getCurrentPosition(res, rej, { timeout: 15000 })
     )
     lat = pos.coords.latitude
     lon = pos.coords.longitude
