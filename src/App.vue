@@ -99,6 +99,8 @@ function setFontSize(s: FontSize) {
     <div class="section-label">和暦カレンダー - 日付をクリック・タップで詳細</div>
     <WarekiCalendar />
   </section>
+  <footer class="site-footer">© AZO</footer>
+
 </template>
 
 <style scoped>
@@ -160,6 +162,15 @@ function setFontSize(s: FontSize) {
 .section-label {
   font-size: 0.6rem; letter-spacing: 0.15em;
   color: var(--fg-label); font-family: 'Hiragino Mincho ProN', serif;
+  transition: color 0.3s;
+}
+.site-footer {
+  text-align: center;
+  font-size: 0.6rem;
+  color: var(--fg-label);
+  letter-spacing: 0.15em;
+  padding: 1rem 0 0.5rem;
+  font-family: 'Hiragino Sans', sans-serif;
   transition: color 0.3s;
 }
 </style>

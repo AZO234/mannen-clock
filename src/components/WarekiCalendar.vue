@@ -603,9 +603,9 @@ const modalNextSekki = computed(() => {
 .rokuyou.sensho     { color:var(--gold-muted); }
 .rokuyou.tomobiki   { color:var(--fg-muted); }
 .rokuyou.senbu      { color:var(--fg-muted); }
-.sekki    { font-size:0.56rem; color:#70c8a0; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-family:'Hiragino Sans',sans-serif; }
-.sekku    { font-size:0.54rem; color:#f0a0c0; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-family:'Hiragino Sans',sans-serif; }
-.zassetsu { font-size:0.52rem; color:#a8c870; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-family:'Hiragino Sans',sans-serif; }
+.sekki    { font-size:0.56rem; color:var(--sekki-color); font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-family:'Hiragino Sans',sans-serif; }
+.sekku    { font-size:0.54rem; color:var(--sekku-color); font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-family:'Hiragino Sans',sans-serif; }
+.zassetsu { font-size:0.52rem; color:var(--zassetsu-color); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-family:'Hiragino Sans',sans-serif; }
 .holiday-name { font-size:0.48rem; color:rgba(220,100,80,0.8); line-height:1.2; overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; font-family:'Hiragino Sans',sans-serif; }
 
 .legend { margin-top:1.2rem; display:flex; flex-wrap:wrap; gap:0.6rem 1.4rem; justify-content:center; font-size:0.62rem; color:var(--fg-muted); font-family:'Hiragino Sans',sans-serif; }
@@ -675,7 +675,7 @@ const modalNextSekki = computed(() => {
 
 .modal-section { }
 .modal-section-title {
-  font-size:0.58rem; letter-spacing:0.18em; color:rgba(200,184,100,0.5);
+  font-size:0.58rem; letter-spacing:0.18em; color:var(--modal-title-color);
   font-family:'Hiragino Sans',sans-serif; margin-bottom:0.35rem;
   text-transform:uppercase;
 }
@@ -717,14 +717,14 @@ const modalNextSekki = computed(() => {
   font-size:0.62rem; padding:0.18rem 0.55rem; border-radius:3px;
   font-family:'Hiragino Sans',sans-serif;
 }
-.modal-tag.gogyou  { background:rgba(100,160,80,0.2);  color:#90d870; border:1px solid rgba(100,160,80,0.3); }
-.modal-tag.inyo    { background:rgba(100,140,200,0.2); color:#90b8f0; border:1px solid rgba(100,140,200,0.3); }
-.modal-tag.nacchin { background:rgba(180,140,60,0.2);  color:#d8b060; border:1px solid rgba(180,140,60,0.3); }
+.modal-tag.gogyou  { background:rgba(100,160,80,0.2);  color:var(--tag-gogyou-color);  border:1px solid rgba(100,160,80,0.3); }
+.modal-tag.inyo    { background:rgba(100,140,200,0.2); color:var(--tag-inyo-color);    border:1px solid rgba(100,140,200,0.3); }
+.modal-tag.nacchin { background:rgba(180,140,60,0.2);  color:var(--tag-nacchin-color); border:1px solid rgba(180,140,60,0.3); }
 
 /* 節気・節句・雑節 */
-.sekki-big    { color:#70c8a0; }
-.sekku-big    { color:#f0a0c0; }
-.zassetsu-big { color:#a8c870; }
+.sekki-big    { color:var(--sekki-color); }
+.sekku-big    { color:var(--sekku-color); }
+.zassetsu-big { color:var(--zassetsu-color); }
 .modal-next-sekki { font-size:0.68rem; color:var(--fg-label); font-family:'Hiragino Sans',sans-serif; margin-top:0.4rem; }
 .modal-next-sekki strong { color:rgba(112,200,160,0.8); }
 

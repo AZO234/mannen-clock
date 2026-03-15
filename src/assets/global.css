@@ -12,10 +12,18 @@
   --gold-muted:  rgba(200,184,144,0.65);
   --modal-bg:    #1a1428;
   --modal-bg-deep: #0e1020;
+  --bg-panel:    #1a1428;
   --modal-border:rgba(200,160,80,0.25);
   --modal-inner-border: rgba(200,184,100,0.08);
   --cell-today-bg: rgba(200,160,80,0.15);
   --cell-today-ring: rgba(200,160,80,0.4);
+  --tag-gogyou-color:  #90d870;
+  --tag-inyo-color:    #90b8f0;
+  --tag-nacchin-color: #d8b060;
+  --modal-title-color: rgba(200,184,100,0.5);
+  --sekki-color:  #70c8a0;
+  --sekku-color:  #f0a0c0;
+  --zassetsu-color: #a8c870;
 }
 
 [data-theme="light"] {
@@ -29,10 +37,18 @@
   --gold-muted:  rgba(100,70,20,0.75);
   --modal-bg:    #ede8de;
   --modal-bg-deep: #ddd5c8;
+  --bg-panel:    #ede8de;
   --modal-border:rgba(140,100,40,0.35);
   --modal-inner-border: rgba(120,80,20,0.25);
   --cell-today-bg: rgba(160,110,20,0.12);
   --cell-today-ring: rgba(160,110,20,0.5);
+  --tag-gogyou-color:  #2a7010;
+  --tag-inyo-color:    #1a4a90;
+  --tag-nacchin-color: #7a4a08;
+  --modal-title-color: rgba(100,70,20,0.65);
+  --sekki-color:  #1a7a50;
+  --sekku-color:  #b04070;
+  --zassetsu-color: #507830;
 }
 
 html, body {
