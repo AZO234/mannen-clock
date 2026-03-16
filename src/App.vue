@@ -7,6 +7,7 @@ import ThemeToggle   from '@/components/ThemeToggle.vue'
 import MiniGadget    from '@/components/MiniGadget.vue'
 import MedGadget     from '@/components/MedGadget.vue'
 import ChimeGadget   from '@/components/ChimeGadget.vue'
+import MiniCalendar  from '@/components/MiniCalendar.vue'
 
 // テーマ: localStorage で永続化
 const isDark = ref(localStorage.getItem('theme') !== 'light')
@@ -82,6 +83,10 @@ function setFontSize(s: FontSize) {
     <div class="gadget-item">
       <div class="section-label">音声通知ガジェット - 日照時間で変化</div>
       <ChimeGadget />
+    </div>
+    <div class="gadget-item">
+      <div class="section-label">小カレンダー</div>
+      <MiniCalendar />
     </div>
   </div>
 

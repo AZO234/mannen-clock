@@ -13,6 +13,8 @@
 | `MiniGadget.vue` | 小ガジェット — 現在時刻・和時刻干支のウィジェット風表示 |
 | `MedGadget.vue` | 中ガジェット — 地名・日付・現在時刻・天気・気温・降水量・風速・和時刻干支のウィジェット風表示 |
 | `ChimeGadget.vue` | 音声通知ガジェット — 中ガジェットベース＋不定時法の刻でチャイム音・ブラウザ通知 |
+| `MiniCalendar.vue` | 小カレンダー — 月別カレンダー・日付クリックで詳細モーダル表示 |
+| `common/CalendarModal.vue` | 日付詳細モーダル（共通）— WarekiCalendar・MiniCalendar で共有 |
 
 ## 使用 API
 
@@ -123,11 +125,14 @@ pnpm run preview   # ビルド確認
 | ファイル | 役割 | 必須 |
 |---|---|---|
 | `src/composables/useSkyData.ts` | 位置情報・天気・日出日没の取得（シングルトン） | 全コンポーネント共通 |
+| `src/composables/useCalendarData.ts` | 祝日取得・DayCell生成・カレンダー定数（シングルトン） | カレンダー系共通 |
+| `src/components/common/CalendarModal.vue` | 日付詳細モーダルUI | WarekiCalendar・MiniCalendar共通 |
 | `src/components/SkyBar.vue` | 天象バー | 個別 |
 | `src/components/EtoBar.vue` | 和時刻バー | 個別 |
 | `src/components/MiniGadget.vue` | 小ガジェット | 個別 |
 | `src/components/MedGadget.vue` | 中ガジェット | 個別 |
 | `src/components/ChimeGadget.vue` | 音声通知ガジェット | 個別 |
+| `src/components/MiniCalendar.vue` | 小カレンダー | 個別 |
 | `src/components/WarekiCalendar.vue` | 和暦カレンダー | 個別 |
 | `vendor/wa-datetime-*.tgz` | 暦・和時刻計算ライブラリ | 全コンポーネント共通 |
 
@@ -162,6 +167,20 @@ import MiniGadget from './components/MiniGadget.vue'
 ```
 
 `useSkyData.ts` と `wa-datetime` を依存関係に加えるだけで動作します。
+
+### 最小移植例（小カレンダーのみ）
+
+```vue
+<script setup lang="ts">
+import MiniCalendar from './components/MiniCalendar.vue'
+</script>
+
+<template>
+  <MiniCalendar />
+</template>
+```
+
+`useCalendarData.ts`・`common/CalendarModal.vue`・`wa-datetime` が必要です。
 
 ## 参考
 
