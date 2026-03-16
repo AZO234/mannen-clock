@@ -234,7 +234,7 @@ onUnmounted(() => {
 }
 
 .med__loc {
-  font-size: 0.65em;
+  font-size: 0.7em;
   color: var(--fg-muted);
   font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif;
   letter-spacing: 0.05em;
@@ -251,14 +251,14 @@ onUnmounted(() => {
   border-bottom: 1px solid var(--gold-muted);
   padding-bottom: 0.25em;
 }
-.med__date { font-size: 0.75em; color: var(--fg-muted); font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif; letter-spacing: 0.03em; }
+.med__date { font-size: 0.8em; color: var(--fg-muted); font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif; letter-spacing: 0.03em; }
 .med__time { font-size: 1.0em; font-weight: 700; color: var(--gold); font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif; letter-spacing: 0.03em; }
 .med__body { display: flex; align-items: center; justify-content: space-between; gap: 0.8em; }
 .med__info { display: flex; flex-direction: column; gap: 0.05em; flex: 1; }
 .med__weather { font-size: 0.8em;  color: var(--fg);       letter-spacing: 0.05em; }
 .med__temp    { font-size: 1.1em;  color: var(--gold);     letter-spacing: 0.05em; }
 .med__precip,
-.med__wind    { font-size: 0.65em; color: var(--fg-muted); letter-spacing: 0.03em; }
+.med__wind    { font-size: 0.7em; color: var(--fg-muted); letter-spacing: 0.03em; }
 .med__frame {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   width: 3em; height: 3.5em; border-radius: 0.35em;
@@ -270,7 +270,7 @@ onUnmounted(() => {
   text-shadow: 0 1px 4px rgba(0,0,0,0.6), 0 0 0.3em rgba(255,255,255,0.2);
   letter-spacing: -0.02em; line-height: 1;
 }
-.med__num { font-size: 0.65em; font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif; color: rgba(255,255,255,0.75); letter-spacing: 0.04em; line-height: 1; }
+.med__num { font-size: 0.7em; font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif; color: rgba(255,255,255,0.75); letter-spacing: 0.04em; line-height: 1; }
 
 /* サウンド操作 */
 .chime__controls {
@@ -283,7 +283,7 @@ onUnmounted(() => {
 }
 .chime__label {
   display: flex; align-items: center; gap: 0.3em;
-  font-size: 0.65em; color: var(--fg-muted); cursor: pointer;
+  font-size: 0.7em; color: var(--fg-muted); cursor: pointer;
 }
 .chime__select {
   background: var(--bg); color: var(--fg);

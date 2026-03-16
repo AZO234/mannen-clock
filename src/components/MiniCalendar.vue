@@ -101,7 +101,7 @@ function closeModal()          { modalCell.value = null }
 }
 .mini-cal__nav {
   background: none; border: none; color: var(--gold-muted);
-  font-size: 0.75em; cursor: pointer; padding: 0 0.3em;
+  font-size: 0.8em; cursor: pointer; padding: 0 0.3em;
   transition: color 0.15s; font-family: inherit;
 }
 .mini-cal__nav:hover { color: var(--gold); }
@@ -110,7 +110,7 @@ function closeModal()          { modalCell.value = null }
   grid-template-columns: repeat(7, 1fr);
 }
 .mini-cal__dow {
-  font-size: 0.55em; text-align: center; color: var(--fg-muted);
+  font-size: 0.6em; text-align: center; color: var(--fg-muted);
   padding: 0.2em 0;
   font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif;
 }
@@ -137,15 +137,15 @@ function closeModal()          { modalCell.value = null }
 .mini-cal__cell.is-sat .mini-cal__day  { color: rgba(100,160,220,0.9); }
 .mini-cal__cell.is-holiday .mini-cal__day { color: rgba(220,100,80,0.9); }
 .mini-cal__day {
-  font-size: 0.75em; line-height: 1.4; color: var(--fg);
+  font-size: 0.8em; line-height: 1.4; color: var(--fg);
   font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif;
 }
 .mini-cal__lunar {
-  font-size: 0.55em; color: var(--gold-muted);
+  font-size: 0.6em; color: var(--gold-muted);
   letter-spacing: 0.02em; line-height: 1.2; white-space: nowrap;
 }
 .mini-cal__sekki {
-  font-size: 0.52em; color: var(--sekki-color);
+  font-size: 0.6em; color: var(--sekki-color);
   line-height: 1.2; white-space: nowrap;
 }
 </style>

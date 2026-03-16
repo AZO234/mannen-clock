@@ -94,7 +94,7 @@ const colorB   = computed(() => colors.value.colorB)
   line-height: 1;
 }
 .mini__num {
-  font-size: 0.65em;
+  font-size: 0.7em;
   font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif;
   color: rgba(255,255,255,0.75);
   letter-spacing: 0.04em;

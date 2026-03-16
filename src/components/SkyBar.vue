@@ -340,7 +340,7 @@ onUnmounted(() => { clearInterval(clockTick) })
 
 /* ── 右パネル内要素 ── */
 .side__hhmm {
-  font-size: 0.52em;
+  font-size: 0.6em;
   opacity: 0.9;
 }
 
@@ -350,18 +350,18 @@ onUnmounted(() => { clearInterval(clockTick) })
   gap: 0.3em;
 }
 .side__weather {
-  font-size: 0.56em;
+  font-size: 0.6em;
   opacity: 0.82;
 }
 .side__temp {
-  font-size: 0.85em;
+  font-size: 0.9em;
   font-weight: 700;
   letter-spacing: 0.02em;
 }
 
 /* 左パネル固有 */
 .side__loc {
-  font-size: 0.44em;
+  font-size: 0.5em;
   opacity: 0.68;
   text-align: center;
   line-height: 1.35;
@@ -371,7 +371,7 @@ onUnmounted(() => { clearInterval(clockTick) })
   white-space: nowrap;
 }
 .side__time {
-  font-size: 0.85em;
+  font-size: 0.9em;
   font-weight: 700;
   letter-spacing: 0.03em;
 }
@@ -406,7 +406,7 @@ onUnmounted(() => { clearInterval(clockTick) })
   width: 100%;
 }
 .detail-label {
-  font-size: 0.38em;
+  font-size: 0.4em;
   opacity: 0.6;
   width: 1.2em;
   text-align: right;
@@ -426,7 +426,7 @@ onUnmounted(() => { clearInterval(clockTick) })
   min-width: 2px;
 }
 .detail-val {
-  font-size: 0.38em;
+  font-size: 0.4em;
   opacity: 0.82;
   width: 3em;
   text-align: left;
@@ -436,7 +436,7 @@ onUnmounted(() => { clearInterval(clockTick) })
 
 
 .side__moon {
-  font-size: 0.42em;
+  font-size: 0.5em;
   opacity: 0.65;
   letter-spacing: 0.05em;
   font-family: 'Hiragino Mincho ProN', serif;
@@ -456,7 +456,7 @@ onUnmounted(() => { clearInterval(clockTick) })
   overflow: hidden;
 }
 .bar--loading { background:#0d0d22; align-items:center; justify-content:center; }
-.bar__msg { font-size:0.65em; color:rgba(255,255,255,0.35); animation:pulse 1.5s ease-in-out infinite; }
+.bar__msg { font-size:0.7em; color:rgba(255,255,255,0.35); animation:pulse 1.5s ease-in-out infinite; }
 
 /* ── セル ── */
 .cell {
@@ -517,7 +517,7 @@ onUnmounted(() => { clearInterval(clockTick) })
 .now-line::before {
   content:'▼'; position:absolute;
   top:-1.3em; left:50%; transform:translateX(-50%);
-  color:white; font-size:0.45em;
+  color:white; font-size:0.5em;
   text-shadow:0 1px 3px rgba(0,0,0,0.8);
 }
 
@@ -527,7 +527,7 @@ onUnmounted(() => { clearInterval(clockTick) })
   bottom: 0.1em;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 0.38em;
+  font-size: 0.4em;
   color: rgba(255,255,255,0.35);
   white-space: nowrap;
   pointer-events: none;

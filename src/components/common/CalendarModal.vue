@@ -210,7 +210,7 @@ const modalNextSekki = computed(() => {
   font-family:'Hiragino Sans','Yu Gothic','Meiryo','Noto Sans JP',sans-serif;
   margin-bottom:0.35rem; text-transform:uppercase;
 }
-.modal-item-big { font-size:1.15rem; color:var(--gold); line-height:1.3; letter-spacing:0.05em; }
+.modal-item-big { font-size:1.2rem; color:var(--gold); line-height:1.3; letter-spacing:0.05em; }
 .modal-item-sub {
   font-size:0.68rem; color:var(--fg-muted); line-height:1.5;
   font-family:'Hiragino Sans','Yu Gothic','Meiryo','Noto Sans JP',sans-serif; margin-top:0.2rem;

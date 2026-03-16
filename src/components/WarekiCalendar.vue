@@ -176,9 +176,9 @@ function closeModal()          { modalCell.value = null }
 .nav-btn { background:none; border:1px solid rgba(255,255,255,0.2); color:var(--gold); font-size:1.1rem; width:2.2rem; height:2.2rem; border-radius:50%; cursor:pointer; transition:background 0.2s; display:flex; align-items:center; justify-content:center; }
 .nav-btn:hover { background:var(--bg-hover); }
 .month-title { font-size:1.6rem; font-weight:400; letter-spacing:0.12em; color:var(--gold); }
-.month-sub   { font-size:0.72rem; color:var(--gold-muted); letter-spacing:0.08em; font-family:'Hiragino Sans',sans-serif; }
+.month-sub   { font-size:0.8rem; color:var(--gold-muted); letter-spacing:0.08em; font-family:'Hiragino Sans',sans-serif; }
 .month-wafuu { display:flex; align-items:center; gap:0.4em; margin-top:0.2rem; justify-content:center; }
-.month-wafuu__name { font-size:0.78rem; color:var(--gold); letter-spacing:0.12em; font-family:'Hiragino Mincho ProN',serif; }
+.month-wafuu__name { font-size:0.8rem; color:var(--gold); letter-spacing:0.12em; font-family:'Hiragino Mincho ProN',serif; }
 .month-wafuu__sep  { font-size:0.65rem; color:var(--fg-muted); }
 .month-wafuu__desc { font-size:0.65rem; color:var(--fg-muted); letter-spacing:0.05em; }
 

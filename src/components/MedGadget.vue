@@ -87,7 +87,7 @@ const colorB   = computed(() => colors.value.colorB)
   min-width: 12em;
 }
 .med__loc {
-  font-size: 0.65em;
+  font-size: 0.7em;
   color: var(--fg-muted);
   font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif;
   letter-spacing: 0.05em;
@@ -104,7 +104,7 @@ const colorB   = computed(() => colors.value.colorB)
   padding-bottom: 0.25em;
 }
 .med__date {
-  font-size: 0.75em;
+  font-size: 0.8em;
   color: var(--fg-muted);
   font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif;
   letter-spacing: 0.03em;
@@ -131,7 +131,7 @@ const colorB   = computed(() => colors.value.colorB)
 .med__weather { font-size: 0.8em;  color: var(--fg);      letter-spacing: 0.05em; }
 .med__temp    { font-size: 1.1em;  color: var(--gold);    letter-spacing: 0.05em; }
 .med__precip,
-.med__wind    { font-size: 0.65em; color: var(--fg-muted); letter-spacing: 0.03em; }
+.med__wind    { font-size: 0.7em; color: var(--fg-muted); letter-spacing: 0.03em; }
 .med__frame {
   display: flex;
   flex-direction: column;
@@ -154,7 +154,7 @@ const colorB   = computed(() => colors.value.colorB)
   line-height: 1;
 }
 .med__num {
-  font-size: 0.65em;
+  font-size: 0.7em;
   font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif;
   color: rgba(255,255,255,0.75);
   letter-spacing: 0.04em;
