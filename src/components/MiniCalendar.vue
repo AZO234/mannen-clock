@@ -141,11 +141,11 @@ function closeModal()          { modalCell.value = null }
   font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif;
 }
 .mini-cal__lunar {
-  font-size: 0.38em; color: var(--gold-muted);
+  font-size: 0.55em; color: var(--gold-muted);
   letter-spacing: 0.02em; line-height: 1.2; white-space: nowrap;
 }
 .mini-cal__sekki {
-  font-size: 0.36em; color: var(--sekki-color);
+  font-size: 0.52em; color: var(--sekki-color);
   line-height: 1.2; white-space: nowrap;
 }
 </style>
