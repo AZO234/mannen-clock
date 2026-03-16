@@ -71,25 +71,6 @@ function setFontSize(s: FontSize) {
     </a>
   </div>
 
-  <div class="gadgets-bar">
-    <div class="gadget-item">
-      <div class="section-label">小ガジェット</div>
-      <MiniGadget />
-    </div>
-    <div class="gadget-item">
-      <div class="section-label">中ガジェット</div>
-      <MedGadget />
-    </div>
-    <div class="gadget-item">
-      <div class="section-label">音声通知ガジェット - 日照時間で変化</div>
-      <ChimeGadget />
-    </div>
-    <div class="gadget-item">
-      <div class="section-label">小カレンダー</div>
-      <MiniCalendar />
-    </div>
-  </div>
-
   <section class="section">
     <div class="section-label">天象バー - バー内をホバー・タップで天気予報</div>
     <SkyBar />
@@ -104,6 +85,25 @@ function setFontSize(s: FontSize) {
     <div class="section-label">和暦カレンダー - 日付をクリック・タップで詳細</div>
     <WarekiCalendar />
   </section>
+
+  <div class="gadgets-bar">
+    <div class="gadget-item">
+      <div class="section-label">音声通知ガジェット - 日照時間で変化</div>
+      <ChimeGadget />
+    </div>
+    <div class="gadget-item">
+      <div class="section-label">小ガジェット</div>
+      <MiniGadget />
+    </div>
+    <div class="gadget-item">
+      <div class="section-label">中ガジェット</div>
+      <MedGadget />
+    </div>
+    <div class="gadget-item">
+      <div class="section-label">小カレンダー</div>
+      <MiniCalendar />
+    </div>
+  </div>
   <footer class="site-footer">© AZO</footer>
 
 </template>
