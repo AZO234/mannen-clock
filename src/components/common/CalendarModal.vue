@@ -197,7 +197,7 @@ const modalNextSekki = computed(() => {
 .modal-dow.is-sat { color:rgba(100,160,220,0.8); }
 .modal-today-badge {
   font-size:0.62rem; padding:0.15rem 0.5rem; border-radius:3px;
-  background:rgba(200,160,60,0.25); color:#e8c860;
+  background:rgba(200,160,60,0.25); color:var(--tag-today-color);
   border:1px solid rgba(200,160,60,0.35);
   font-family:'Hiragino Sans','Yu Gothic','Meiryo','Noto Sans JP',sans-serif;
 }

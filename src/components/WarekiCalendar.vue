@@ -190,7 +190,7 @@ function closeModal()          { modalCell.value = null }
 .grid { display:grid; grid-template-columns:repeat(7,1fr); gap:3px; }
 
 .cell {
-  aspect-ratio:3/2; border-radius:6px; padding:0.35rem 0.4rem 0.3rem;
+  aspect-ratio:1/1; border-radius:6px; padding:0.35rem 0.4rem 0.3rem;
   display:flex; flex-direction:column; gap:0.12rem;
   background:var(--bg-section);
   transition:background 0.15s; overflow:hidden;
