@@ -39,9 +39,9 @@ function closeModal()          { modalCell.value = null }
 <template>
   <div class="mini-cal">
     <div class="mini-cal__head">
-      <button class="mini-cal__nav" @click="prevMonth">←</button>
+      <button class="mini-cal__nav" @click="prevMonth">◀</button>
       <span class="mini-cal__title">{{ currentYear }}年{{ currentMonth }}月</span>
-      <button class="mini-cal__nav" @click="nextMonth">→</button>
+      <button class="mini-cal__nav" @click="nextMonth">▶</button>
     </div>
 
     <div class="mini-cal__dow-row">
