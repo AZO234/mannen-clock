@@ -104,7 +104,10 @@ function setFontSize(s: FontSize) {
       <MiniCalendar />
     </div>
   </div>
-  <footer class="site-footer">© AZO</footer>
+  <footer class="site-footer">
+    <a href="https://domisan.sakura.ne.jp/"><img src="https://domisan.sakura.ne.jp/banner.png" width=”150” /></a><br />
+    © AZO
+  </footer>
 
 </template>
 
