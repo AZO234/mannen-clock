@@ -105,7 +105,7 @@ function setFontSize(s: FontSize) {
     </div>
   </div>
   <footer class="site-footer">
-    <a href="https://domisan.sakura.ne.jp/"><img src="https://domisan.sakura.ne.jp/banner.png" width=”150” /></a><br />
+    <a href="https://domisan.sakura.ne.jp/"><img src="https://domisan.sakura.ne.jp/banner.png" width=”150” target="_blank" /></a><br />
     © AZO
   </footer>
 
