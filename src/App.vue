@@ -55,6 +55,10 @@ function setFontSize(s: FontSize) {
         <p class="site-sub">
           <a href="https://github.com/AZO234/mannen-clock" target="_blank" rel="noopener noreferrer">GitHub</a> (TypeScript + Vue.js)
         </p>
+        <p class="site-sub">
+          日照時間により朝はセロトニン（覚醒物質）が分泌され、<br />
+          日没後は、メラトニン（睡眠物質）に変異すると追われています。
+        </p>
       </div>
     </div>
   </header>
@@ -105,7 +109,7 @@ function setFontSize(s: FontSize) {
     </div>
   </div>
   <footer class="site-footer">
-    <a href="https://domisan.sakura.ne.jp/" target="_blank"><img src="https://domisan.sakura.ne.jp/banner.png" width=”150” /></a><br />
+    <a href="https://domisan.sakura.ne.jp/" target="_blank"><img src="https://domisan.sakura.ne.jp/banner.png" width="150" /></a><br />
     © AZO
   </footer>
 
